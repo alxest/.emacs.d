@@ -1,0 +1,13 @@
+.emacs.desktop
+.emacs.desktop.lock
+*~
+\#*
+*.elc
+eshell/lastdir
+eshell/history
+var/
+trouble_shooting/
+elpa/
+auto-save-list/
+projectile-bookmarks.eld
+tramp
