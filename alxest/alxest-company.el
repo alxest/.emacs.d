@@ -9,10 +9,10 @@
 (setq company-math--symbols (cons #("disjunction" 0 11 (:symbol "∨")) company-math--symbols))
 
 
-(add-hook 'tuareg-interactive-mode-hook
-    '(lambda () (setq company-mode nil)))
-(add-hook 'eshell-mode-hook
-    '(lambda () (setq company-mode nil)))
+;; (add-hook 'tuareg-interactive-mode-hook
+;;     '(lambda () (setq company-mode nil)))
+;; (add-hook 'eshell-mode-hook
+;;     '(lambda () (setq company-mode nil)))
 
 
 (provide 'alxest-company)
