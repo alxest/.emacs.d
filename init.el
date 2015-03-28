@@ -81,19 +81,6 @@
 (setq default-tab-width 1) 
 ;in tuareg mode, C-? does not mark proper position, because it counts tab as single character
 
-(setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
-(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
-(require 'merlin)
-(add-hook 'tuareg-mode-hook 'merlin-mode)
-(eval-after-load "merlin"
-    '(define-key merlin-mode-map (kbd "C-c C-.") 'merlin-error-reset))
-
-; Make company aware of merlin
-(add-to-list 'company-backends 'merlin-company-backend)
-; Enable company on merlin managed buffers
-(add-hook 'merlin-mode-hook 'company-mode)
-; Or enable it globally:
-; (add-hook 'after-init-hook 'global-company-mode)
 
 
 (load-file "~/.emacs.d/elpa/ProofGeneral/generic/proof-site.el")
