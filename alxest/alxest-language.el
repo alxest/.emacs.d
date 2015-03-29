@@ -54,4 +54,17 @@
 ; (add-hook 'after-init-hook 'global-company-mode)
 
 
+
+;; (setq merlin-locate-focus-new-window
+(setq merlin-locate-in-new-window 'never)
+;; Documentation:
+;; Determine whether to display results of `merlin-locate' in a new window or not.
+;; (defcustom merlin-locate-in-new-window 'diff
+;;   "Determine whether to display results of `merlin-locate' in a new window or not."
+;;   :group 'merlin :type '(choice (const :tag "Always open a new window" always)
+;;                                 (const :tag "Never open a new window" never)
+;;                                 (const :tag "Open a new window only if the target file is different from current buffer." diff)))
+
+
+
 (provide 'alxest-language)
