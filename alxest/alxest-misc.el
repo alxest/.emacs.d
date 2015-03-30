@@ -7,7 +7,7 @@ With argument, do this that many times."
   (or (re-search-forward (if (> arg 0) "\\W\\b" "\\b\\W") nil t arg)
       (goto-char (if (> arg 0) (point-max) (point-min)))))
 (global-set-key (kbd "M-f") 'forward-to-word)
-(global-set-key "\C-c\C-q" 'comment-or-uncomment-region)
+(global-set-key "\C-c\C-;" 'comment-or-uncomment-region)
 (global-set-key "\C-t" 'previous-line)
 (global-set-key "\C-z" 'eshell)
 (global-set-key "\M-k" '(lambda () (interactive) (kill-line 0))) 
