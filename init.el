@@ -10,6 +10,7 @@
 (require 'alxest-company)
 (require 'alxest-language)
 
+(server-force-delete)
 (server-start)
 ;(require-package 'smartparens)
 ;(smartparens-global-mode t)
@@ -97,3 +98,6 @@
 ;; (eval-after-load "coq"
 ;;     '(define-key coq-mode-map (kbd "C-c C-u") 'proof-ctxt))
 
+
+;; (require-package 'company-coq)
+;; (add-hook 'coq-mode-hook #'company-coq-initialize)
