@@ -2,6 +2,7 @@
 (require-package 'multi-term)
 
 (setq multi-term-program "/bin/zsh")
+;; (setq multi-term-program"/usr/bin/bash")
 (global-set-key (kbd "C-}") 'multi-term-next)
 (global-set-key (kbd "C-{") 'multi-term-prev)
 (global-set-key (kbd "C-c C-z") 'multi-term)
@@ -23,5 +24,7 @@
 (setq scroll-conservatively 101)
 (setq scroll-preserve-screen-position t)
 (setq term-scroll-snap-to-bottom nil)
+
+(global-set-key (kbd "M-z") 'eshell)
 
 (provide 'alxest-term)
