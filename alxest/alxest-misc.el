@@ -60,3 +60,7 @@ With argument, do this that many times."
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;http://emacswiki.org/emacs/AutoIndentation
+(define-key global-map (kbd "RET") 'newline-and-indent)
+;https://github.com/GriffinSchneider/emacs-config/blob/master/evil-mode-customizations.el
+(evil-global-set-key 'insert (kbd "<RET>") 'evil-ret-and-indent)
