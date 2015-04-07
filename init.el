@@ -101,3 +101,5 @@
 
 ;; (require-package 'company-coq)
 ;; (add-hook 'coq-mode-hook #'company-coq-initialize)
+
+(require-package 'magit)
