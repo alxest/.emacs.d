@@ -26,5 +26,7 @@
 (setq term-scroll-snap-to-bottom nil)
 
 (global-set-key (kbd "M-z") 'eshell)
+(add-hook 'term-mode-hook
+          (lambda () (local-set-key (kbd "RET") #'term-send-return)))
 
 (provide 'alxest-term)
