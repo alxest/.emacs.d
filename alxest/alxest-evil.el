@@ -58,6 +58,8 @@
 (define-key key-translation-map (kbd "cb") (kbd "C-b"))
 ;(define-key evil-normal-state-map "c" nil)
 
+;https://github.com/GriffinSchneider/emacs-config/blob/master/evil-mode-customizations.el
+(evil-global-set-key 'insert (kbd "<RET>") 'evil-ret-and-indent)
 
 
 (provide 'alxest-evil)
