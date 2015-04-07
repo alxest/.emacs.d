@@ -1,7 +1,8 @@
 (add-to-list 'load-path (expand-file-name "alxest" user-emacs-directory))
 (require 'alxest-package)
 (require 'alxest-helm)
-(require 'alxest-term)
+;(require 'alxest-term)
+;(require 'alxest-eshell)
 (require 'alxest-dvorak)
 (require 'alxest-misc)
 (require 'alxest-multiple-cursors)
@@ -22,6 +23,7 @@
 (cscope-setup)
 
 
+;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
 ;(unicode-fonts-setup)
 
@@ -103,3 +105,15 @@
 ;; (add-hook 'coq-mode-hook #'company-coq-initialize)
 
 (require-package 'magit)
+(setq magit-auto-revert-mode nil)
+;; Warning (:warning): for magit-1.4.0
+
+;; You have just updated to version 1.4.0 of Magit, and have to
+;; make a choice.
+
+;; Before running Git, Magit by default reverts all unmodified
+;; buffers which visit files tracked in the current repository.
+;; This can potentially lead to dataloss so you might want to
+;; disable this by adding the following line to your init file:
+
+
