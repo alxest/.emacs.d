@@ -10,6 +10,7 @@
 (require 'alxest-org)
 (require 'alxest-company)
 (require 'alxest-language)
+(require 'alxest-coq)
 
 (server-force-delete)
 (server-start)
@@ -132,3 +133,5 @@
            name directory))
   )
 (defalias 'gcd 'grep-coq-def)
+
+(add-hook 'eshell-mode-hook '(lambda () (setq company-mode nil)))
