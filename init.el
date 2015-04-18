@@ -2,7 +2,7 @@
 (require 'alxest-package)
 (require 'alxest-helm)
 ;(require 'alxest-term)
-;(require 'alxest-eshell)
+(require 'alxest-eshell)
 (require 'alxest-dvorak)
 (require 'alxest-misc)
 (require 'alxest-multiple-cursors)
@@ -101,8 +101,8 @@
 ;;     '(define-key coq-mode-map (kbd "C-c C-u") 'proof-ctxt))
 
 
-;; (require-package 'company-coq)
-;; (add-hook 'coq-mode-hook #'company-coq-initialize)
+ ;; (require-package 'company-coq)
+ ;; (add-hook 'coq-mode-hook #'company-coq-initialize)
 
 (require-package 'magit)
 (setq magit-auto-revert-mode nil)
@@ -117,3 +117,18 @@
 ;; disable this by adding the following line to your init file:
 
 
+;; Grep Coq Definitions
+(defun grep-coq-def (name directory)
+  "Get Coq Definitions"
+  (interactive (list (read-string "name: "
+                                  (if (region-active-p)
+                                      (buffer-substring (region-beginning) (region-end))
+                                    (progn
+                                      (push-mark)
+                                      (thing-at-point 'symbol))))
+                     (read-directory-name "directory: ")))
+  (eshell-command
+   (format "egrep -r --include=*.v '(Lemma|Definition|Fixpoint|Theorem|Inductive|CoInductive|Context|Module|Record|Structure|with|\\||Module Type) %s' %s"
+           name directory))
+  )
+(defalias 'gcd 'grep-coq-def)
