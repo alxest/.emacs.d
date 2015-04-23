@@ -21,6 +21,9 @@
     '(define-key coq-mode-map (kbd "C-c C-h") 'proof-undo-last-successful-command))
 (eval-after-load "coq-goal"
     '(define-key coq-mode-map (kbd "C-c C-h") 'proof-undo-last-successful-command))
+(add-hook 'coq-mode-hook '(lambda () (setq undo-tree-mode t)))
+(eval-after-load "coq"
+		'(define-key coq-mode-map (kbd "C-c C-;") 'comment-or-uncomment-region))
 
 (load-file "~/.emacs.d/elpa/ProofGeneral/generic/proof-site.el")
 ;(setq-default proof-three-window-enable t)
