@@ -9,7 +9,6 @@ With argument, do this that many times."
 (global-set-key (kbd "M-f") 'forward-to-word)
 (global-set-key (kbd "C-c C-;") 'comment-or-uncomment-region)
 (global-set-key "\C-t" 'previous-line)
-(global-set-key "\C-z" 'eshell)
 (global-set-key "\M-k" '(lambda () (interactive) (kill-line 0))) 
 (global-set-key (kbd "C-x k") 'kill-buffer-and-window)
 (global-set-key "\C-x\C-k" 'kill-this-buffer)

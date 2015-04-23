@@ -1,4 +1,4 @@
-(global-set-key (kbd "M-z") 'alxest-eshell/new)
+(global-set-key (kbd "C-c C-z") 'alxest-eshell/new)
 (global-set-key (kbd "C-}") 'alxest-eshell/next)
 (global-set-key (kbd "C-{") 'alxest-eshell/prev)
 
