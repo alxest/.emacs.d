@@ -53,7 +53,7 @@
 ;http://www.emacswiki.org/emacs/Evil#toc13
 (define-key evil-normal-state-map "c" nil)
 (define-key evil-motion-state-map "cu" 'universal-argument)
-(define-key key-translation-map (kbd "ch") (kbd "C-h"))
+;; (define-key key-translation-map (kbd "ch") (kbd "C-h"))
 (define-key key-translation-map (kbd "cu") (kbd "C-x"))
 (define-key key-translation-map (kbd "cb") (kbd "C-b"))
 ;(define-key evil-normal-state-map "c" nil)

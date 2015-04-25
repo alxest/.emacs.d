@@ -17,10 +17,10 @@
   )
 (defalias 'gcd 'grep-coq-def)
 
-(eval-after-load "coq"
-    '(define-key coq-mode-map (kbd "C-c C-h") 'proof-undo-last-successful-command))
-(eval-after-load "coq-goal"
-    '(define-key coq-mode-map (kbd "C-c C-h") 'proof-undo-last-successful-command))
+;; (eval-after-load "coq"
+;;     '(define-key coq-mode-map (kbd "C-c C-h") 'proof-undo-last-successful-command))
+;; (eval-after-load "coq-goal"
+;;     '(define-key coq-mode-map (kbd "C-c C-h") 'proof-undo-last-successful-command))
 (add-hook 'coq-mode-hook '(lambda () (setq undo-tree-mode t)))
 (eval-after-load "coq"
 		'(define-key coq-mode-map (kbd "C-c C-;") 'comment-or-uncomment-region))
@@ -36,4 +36,11 @@
 
  ;; (require-package 'company-coq)
  ;; (add-hook 'coq-mode-hook #'company-coq-initialize)
+
+;proof-general specific
+;; (define-key key-translation-map (kbd "cn") (kbd "C-c C-n"))
+;; (define-key key-translation-map (kbd "ch") (kbd "C-c C-h"))
+;; (define-key key-translation-map (kbd "c RET") (kbd "C-c C-<return>"))
+(define-key evil-normal-state-map (kbd "ch") 'proof-undo-last-successful-command)
+(define-key evil-normal-state-map (kbd "cn") 'proof-assert-next-command-interactive)
 
