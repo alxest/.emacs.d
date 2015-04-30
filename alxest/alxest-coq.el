@@ -43,4 +43,5 @@
 ;; (define-key key-translation-map (kbd "c RET") (kbd "C-c C-<return>"))
 (define-key evil-normal-state-map (kbd "ch") 'proof-undo-last-successful-command)
 (define-key evil-normal-state-map (kbd "cn") 'proof-assert-next-command-interactive)
+(define-key evil-normal-state-map (kbd "c RET") 'proof-goto-point)
 
