@@ -6,6 +6,8 @@
 (global-set-key "\C-x\C-n" 'next-buffer)
 (global-set-key "\C-x\C-p" 'previous-buffer)
 
+(define-key evil-normal-state-map (kbd "M-.") 'find-tag)
+
 (define-key evil-normal-state-map (kbd "<escape>") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "&") 'evil-end-of-line)
 
@@ -54,8 +56,43 @@
 (define-key evil-normal-state-map "c" nil)
 (define-key evil-motion-state-map "cu" 'universal-argument)
 ;; (define-key key-translation-map (kbd "ch") (kbd "C-h"))
-(define-key key-translation-map (kbd "cu") (kbd "C-x"))
+;; (define-key key-translation-map (kbd "cu") (kbd "C-x"))
+;; (define-key key-translation-map (kbd "cb") (kbd "C-b"))
+
+
+(define-key key-translation-map (kbd "ca") (kbd "C-a"))
 (define-key key-translation-map (kbd "cb") (kbd "C-b"))
+(define-key key-translation-map (kbd "cc") (kbd "C-c"))
+(define-key key-translation-map (kbd "cd") (kbd "C-d"))
+(define-key key-translation-map (kbd "ce") (kbd "C-e"))
+(define-key key-translation-map (kbd "cf") (kbd "C-f"))
+(define-key key-translation-map (kbd "cg") (kbd "C-g"))
+(define-key key-translation-map (kbd "ch") (kbd "C-h"))
+(define-key key-translation-map (kbd "ci") (kbd "C-i"))
+(define-key key-translation-map (kbd "cj") (kbd "C-j"))
+(define-key key-translation-map (kbd "ck") (kbd "C-k"))
+(define-key key-translation-map (kbd "cl") (kbd "C-l"))
+(define-key key-translation-map (kbd "cm") (kbd "C-m"))
+(define-key key-translation-map (kbd "cn") (kbd "C-n"))
+(define-key key-translation-map (kbd "co") (kbd "C-o"))
+(define-key key-translation-map (kbd "cp") (kbd "C-p"))
+(define-key key-translation-map (kbd "cq") (kbd "C-q"))
+(define-key key-translation-map (kbd "cr") (kbd "C-r"))
+(define-key key-translation-map (kbd "cs") (kbd "C-s"))
+(define-key key-translation-map (kbd "ct") (kbd "C-t"))
+(define-key key-translation-map (kbd "cu") (kbd "C-x"))
+(define-key key-translation-map (kbd "cv") (kbd "C-v"))
+(define-key key-translation-map (kbd "cw") (kbd "C-w"))
+(define-key key-translation-map (kbd "cu") (kbd "C-x"))
+(define-key key-translation-map (kbd "cy") (kbd "C-y"))
+(define-key key-translation-map (kbd "cz") (kbd "C-z"))
+
+(define-key key-translation-map (kbd "c;") (kbd "C-;"))
+(define-key key-translation-map (kbd "c,") (kbd "C-,"))
+(define-key key-translation-map (kbd "c.") (kbd "C-."))
+(define-key key-translation-map (kbd "c{") (kbd "C-{"))
+(define-key key-translation-map (kbd "c}") (kbd "C-}"))
+
 ;(define-key evil-normal-state-map "c" nil)
 
 ;https://github.com/GriffinSchneider/emacs-config/blob/master/evil-mode-customizations.el
