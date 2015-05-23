@@ -24,6 +24,19 @@
 (add-hook 'coq-mode-hook '(lambda () (setq undo-tree-mode t)))
 (eval-after-load "coq"
 		'(define-key coq-mode-map (kbd "C-c C-;") 'comment-or-uncomment-region))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-c C-r") 'revert-buffer))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-c C-z") 'alxest-eshell/new))
+;; (eval-after-load "coq"
+;;     '(define-key coq-mode-map (kbd "C p") 'coq-Print))
+;; (eval-after-load "coq"
+;;     '(define-key coq-mode-map (kbd "C a") 'coq-SearchAbout))
+;; (eval-after-load "coq"
+;;     '(define-key coq-mode-map (kbd "C n") 'coq-LocateNotation))
+;; (eval-after-load "coq"
+;;     '(define-key coq-mode-map (kbd "C l") 'coq-LocateConstant))
+
 
 (load-file "~/.emacs.d/elpa/ProofGeneral/generic/proof-site.el")
 ;(setq-default proof-three-window-enable t)

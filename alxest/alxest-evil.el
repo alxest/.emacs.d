@@ -98,5 +98,6 @@
 ;https://github.com/GriffinSchneider/emacs-config/blob/master/evil-mode-customizations.el
 (evil-global-set-key 'insert (kbd "<RET>") 'evil-ret-and-indent)
 
+(define-key evil-normal-state-map "C" nil)
 
 (provide 'alxest-evil)

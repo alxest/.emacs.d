@@ -108,3 +108,6 @@
 (require-package 'unbound)
 (describe-unbound-keys 5)
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
+
+(require-package 'evil-search-highlight-persist)
+(evil-search-highlight-persist)
