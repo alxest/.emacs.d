@@ -111,3 +111,16 @@
 
 (require-package 'evil-search-highlight-persist)
 (evil-search-highlight-persist)
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(org-export-backends (quote (ascii html icalendar latex md)))
+;;  '(safe-local-variable-values (quote ((eval flet ((pre (s) (concat (locate-dominating-file buffer-file-name ".dir-locals.el") s))) (setq coq-load-path (\` nil))) (eval flet ((pre (s) (concat (locate-dominating-file buffer-file-name ".dir-locals.el") s))) (setq coq-load-path (\` ((\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/src/Vellvm") (\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/src/Vellvm/ott") (\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/src/Vellvm/Dominators") (\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/lib/compcert-1.9") (\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/lib/cpdtlib") (\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/lib/GraphBasics") (\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/lib/metalib-20090714") (\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/lib/Coq-Equations-8.4/src") (rec (\, "/home/youngju.song/coq_related/vellvm-legacy-snu-sf/lib/Coq-Equations-8.4/theories") "Equations"))))) (coq-prog-args "-emacs-U" "-impredicative-set") (eval flet ((pre (s) (concat (locate-dominating-file buffer-file-name ".dir-locals.el") s))) (setq coq-load-path (\` ((\, (pre "src/Vellvm")) (\, (pre "src/Vellvm/ott")) (\, (pre "src/Vellvm/Dominators")) (\, (pre "lib/compcert-1.9")) (\, (pre "lib/cpdtlib")) (\, (pre "lib/GraphBasics")) (\, (pre "lib/metalib-20090714")) (\, (pre "lib/Coq-Equations-8.4/src")) (rec (\, (pre "lib/Coq-Equations-8.4/theories")) "Equations")))))))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
