@@ -111,3 +111,20 @@
 
 (require-package 'evil-search-highlight-persist)
 (evil-search-highlight-persist)
+
+
+
+
+
+
+
+
+;; http://stackoverflow.com/questions/21005885/export-org-mode-code-block-and-result-with-different-styles
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+(setq org-latex-listings 'minted)
+
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
