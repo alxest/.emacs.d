@@ -22,7 +22,7 @@
 
 (require-package 'xcscope)
 (cscope-setup)
-
+(setq mac-command-modifier 'meta)
 
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
