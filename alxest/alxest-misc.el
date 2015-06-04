@@ -42,7 +42,7 @@ With argument, do this that many times."
 
 (require-package 'color-theme)
 (require-package 'color-theme-solarized)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized t)
 
 ;;http://emacsredux.com/blog/2013/04/01/highlight-matching-parentheses/
 (require-package 'paren)
