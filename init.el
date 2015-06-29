@@ -123,3 +123,4 @@
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 (require-package 'cil-mode)
+(require-package 'csharp-mode)
