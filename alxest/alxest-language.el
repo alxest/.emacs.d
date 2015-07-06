@@ -66,5 +66,7 @@
 ;;                                 (const :tag "Open a new window only if the target file is different from current buffer." diff)))
 
 
+;http://tuhdo.github.io/c-ide.html
+(add-hook 'c-mode-common-hook 'hs-minor-mode)
 
 (provide 'alxest-language)
