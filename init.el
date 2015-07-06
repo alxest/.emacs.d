@@ -137,3 +137,5 @@
 
 
 
+(require-package 'cil-mode)
+(require-package 'csharp-mode)
