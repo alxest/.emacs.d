@@ -75,4 +75,8 @@
 (require-package 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
+;don't know why but cannot unbind M-. or rebind M-.
+(add-hook 'scala-mode-hook
+										'(lambda () (local-set-key (kbd "C-,") 'ensime-edit-definition)))
+
 (provide 'alxest-language)
