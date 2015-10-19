@@ -24,6 +24,12 @@
 (cscope-setup)
 (setq mac-command-modifier 'meta)
 
+;; fonts
+; describe-font
+; Options-Set default fonts
+; (set-default-font "Inconsolata:pixelsize=18:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
+(set-default-font "Inconsolata 14")
+
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
 ;(unicode-fonts-setup)
