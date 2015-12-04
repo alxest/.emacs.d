@@ -100,8 +100,10 @@
 
 (define-key evil-normal-state-map "C" nil)
 
-
-(require-package 'evil-search-highlight-persist)
-(evil-search-highlight-persist)
-
+;for coq bindings. coq bindings did not override those bindings and this is a detour
+(define-key evil-normal-state-map (kbd "C-p") 'nil)
+(define-key evil-normal-state-map (kbd "C-a") 'nil)
+(define-key evil-motion-state-map (kbd "C-b") 'nil)
+;; (define-key evil-normal-state-map (kbd "C-j") 'nil)
+;; (define-key evil-normal-state-map (kbd "C-k") 'nil)
 (provide 'alxest-evil)

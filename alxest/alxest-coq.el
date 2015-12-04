@@ -28,12 +28,19 @@
     '(define-key coq-mode-map (kbd "C-c C-r") 'revert-buffer))
 (eval-after-load "coq"
     '(define-key coq-mode-map (kbd "C-c C-z") 'alxest-eshell/new))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-p") 'coq-Print))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-a") 'coq-SearchAbout))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-b") 'coq-About))
 ;; (eval-after-load "coq"
-;;     '(define-key coq-mode-map (kbd "C p") 'coq-Print))
-;; (eval-after-load "coq"
-;;     '(define-key coq-mode-map (kbd "C a") 'coq-SearchAbout))
-;; (eval-after-load "coq"
-;;     '(define-key coq-mode-map (kbd "C n") 'coq-LocateNotation))
+;;     '(define-key coq-mode-map (kbd "C-n") 'coq-LocateNotation))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-j") 'proof-undo-last-successful-command))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-k") 'proof-assert-next-command-interactive))
+
 ;; (eval-after-load "coq"
 ;;     '(define-key coq-mode-map (kbd "C l") 'coq-LocateConstant))
 
