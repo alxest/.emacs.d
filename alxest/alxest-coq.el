@@ -37,9 +37,9 @@
 ;; (eval-after-load "coq"
 ;;     '(define-key coq-mode-map (kbd "C-n") 'coq-LocateNotation))
 (eval-after-load "coq"
-    '(define-key coq-mode-map (kbd "C-j") 'proof-undo-last-successful-command))
+    '(define-key coq-mode-map (kbd "C-k") 'proof-undo-last-successful-command))
 (eval-after-load "coq"
-    '(define-key coq-mode-map (kbd "C-k") 'proof-assert-next-command-interactive))
+    '(define-key coq-mode-map (kbd "C-j") 'proof-assert-next-command-interactive))
 
 ;; (eval-after-load "coq"
 ;;     '(define-key coq-mode-map (kbd "C l") 'coq-LocateConstant))
