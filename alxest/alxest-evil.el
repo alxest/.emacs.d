@@ -100,4 +100,8 @@
 
 (define-key evil-normal-state-map "C" nil)
 
+
+(require-package 'evil-search-highlight-persist)
+(evil-search-highlight-persist)
+
 (provide 'alxest-evil)

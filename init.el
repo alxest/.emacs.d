@@ -115,8 +115,6 @@
 (describe-unbound-keys 5)
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 
-(require-package 'evil-search-highlight-persist)
-(evil-search-highlight-persist)
 
 ;; http://stackoverflow.com/questions/21005885/export-org-mode-code-block-and-result-with-different-styles
 (require 'ox-latex)
