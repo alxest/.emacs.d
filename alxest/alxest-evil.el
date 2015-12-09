@@ -106,4 +106,8 @@
 (define-key evil-motion-state-map (kbd "C-b") 'nil)
 ;; (define-key evil-normal-state-map (kbd "C-j") 'nil)
 ;; (define-key evil-normal-state-map (kbd "C-k") 'nil)
+
+(require-package 'evil-search-highlight-persist)
+(evil-search-highlight-persist)
+
 (provide 'alxest-evil)
