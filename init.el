@@ -149,6 +149,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ecb-options-version "2.40")
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(safe-local-variable-values (quote ((TeX-PDF-mode . t) (TeX-master . "popl")))))
 (custom-set-faces
@@ -162,9 +163,9 @@
 (setq inferior-fsharp-program "/usr/bin/fsharpi --readline-")
 (setq fsharp-compiler "/usr/bin/fsharpc")
 
-;; (require-package 'sr-speedbar)
-;; (require-package 'ecb)
-;; (setq ecb-examples-bufferinfo-buffer-name nil)
+(require-package 'sr-speedbar)
+(require-package 'ecb)
+(setq ecb-examples-bufferinfo-buffer-name nil)
 
 ;; (require-package 'ggtags)
 ;; (require-package 'setup-helm-gtags)
