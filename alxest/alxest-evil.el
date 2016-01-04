@@ -107,6 +107,9 @@
 ;; (define-key evil-normal-state-map (kbd "C-j") 'nil)
 ;; (define-key evil-normal-state-map (kbd "C-k") 'nil)
 
+(define-key evil-motion-state-map (kbd "C-z") 'nil)
+(global-set-key "\C-z" 'nil)
+
 (require-package 'evil-search-highlight-persist)
 (evil-search-highlight-persist)
 
