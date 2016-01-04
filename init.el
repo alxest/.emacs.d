@@ -97,8 +97,8 @@
 (setq split-height-threshold nil)
 (setq proof-three-window-mode-policy (quote hybrid))
 
-(require-package 'magit)
-(setq magit-auto-revert-mode nil)
+;; (require-package 'magit)
+;; (setq magit-auto-revert-mode nil)
 ;; Warning (:warning): for magit-1.4.0
 
 ;; You have just updated to version 1.4.0 of Magit, and have to
@@ -117,9 +117,10 @@
 
 
 ;; http://stackoverflow.com/questions/21005885/export-org-mode-code-block-and-result-with-different-styles
-(require 'ox-latex)
-(add-to-list 'org-latex-packages-alist '("" "minted"))
-(setq org-latex-listings 'minted)
+;; this code makes below code not working..
+;; (require 'ox-latex)
+;; (add-to-list 'org-latex-packages-alist '("" "minted"))
+;; (setq org-latex-listings 'minted)
 
 (setq org-latex-pdf-process
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
@@ -160,3 +161,16 @@
 (require-package 'fsharp-mode)
 (setq inferior-fsharp-program "/usr/bin/fsharpi --readline-")
 (setq fsharp-compiler "/usr/bin/fsharpc")
+
+;; (require-package 'sr-speedbar)
+;; (require-package 'ecb)
+;; (setq ecb-examples-bufferinfo-buffer-name nil)
+
+;; (require-package 'ggtags)
+;; (require-package 'setup-helm-gtags)
+
+(require-package 'ycmd)
+;; (set-variable 'ycmd-server-command '("python" "/home/youngju.song/Research/ycmd/ycmd"))
+(add-hook 'after-init-hook #'global-ycmd-mode)
+;; (add-hook 'c++-mode-hook 'ycmd-mode)
+(setq ycmd-server-command '("python" "/home/youngju.song/Research/ycmd/ycmd"))
