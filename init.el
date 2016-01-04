@@ -97,8 +97,8 @@
 (setq split-height-threshold nil)
 (setq proof-three-window-mode-policy (quote hybrid))
 
-;; (require-package 'magit)
-;; (setq magit-auto-revert-mode nil)
+(require-package 'magit)
+(setq magit-auto-revert-mode nil)
 ;; Warning (:warning): for magit-1.4.0
 
 ;; You have just updated to version 1.4.0 of Magit, and have to
@@ -175,3 +175,15 @@
 (add-hook 'after-init-hook #'global-ycmd-mode)
 ;; (add-hook 'c++-mode-hook 'ycmd-mode)
 (setq ycmd-server-command '("python" "/home/youngju.song/Research/ycmd/ycmd"))
+(add-hook 'ycmd-mode-hook
+										'(lambda () (local-set-key (kbd "C-c y .") 'ycmd-goto)))
+(add-hook 'ycmd-mode-hook
+										'(lambda () (local-set-key (kbd "C-c y t") 'ycmd-get-type)))
+(add-hook 'ycmd-mode-hook
+										'(lambda () (local-set-key (kbd "C-c y p") 'ycmd-get-parent)))
+(add-hook 'ycmd-mode-hook
+										'(lambda () (local-set-key (kbd "C-c y d") 'ycmd-show-documentation)))
+;; (define-key ycmd-mode-map ycmd-keymap-prefix nil)
+;; (setq ycmd-keymap-prefix '(kbd "C-c y"))
+;; (define-key ycmd-mode-map ycmd-keymap-prefix
+;; 		ycmd-command-map)
