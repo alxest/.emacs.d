@@ -6,7 +6,9 @@
 (global-set-key "\C-x\C-n" 'next-buffer)
 (global-set-key "\C-x\C-p" 'previous-buffer)
 
-(define-key evil-normal-state-map (kbd "M-.") 'find-tag)
+;It originally hided all other key bindings, including scala-mode, company-coq-mode, etc.
+;Setting it nil will make other bindings work, it was originally some command that I do not use.
+(define-key evil-normal-state-map (kbd "M-.") nil)
 
 (define-key evil-normal-state-map (kbd "<escape>") 'evil-end-of-line)
 (define-key evil-normal-state-map (kbd "&") 'evil-end-of-line)

@@ -205,3 +205,6 @@
               " " filename)))
 
 (require-package 'markdown-mode)
+
+(require-package 'company-coq)
+(add-hook 'coq-mode-hook #'company-coq-mode)
