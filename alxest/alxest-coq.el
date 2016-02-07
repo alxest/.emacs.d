@@ -41,9 +41,24 @@
 (eval-after-load "coq"
     '(define-key coq-mode-map (kbd "C-j") 'proof-assert-next-command-interactive))
 
-;; (eval-after-load "coq"
-;;     '(define-key coq-mode-map (kbd "C l") 'coq-LocateConstant))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-l") 'coq-LocateConstant))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-q") 'pg-insert-last-output-as-comment))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-n") 'coq-LocateNotation))
 
+;; (global-set-key "\C-l" 'coq-LocateConstant)
+;; (global-set-key "\C-q" 'pg-insert-last-output-as-comment)
+;; (global-set-key "\C-n" 'coq-LocateNotation)
+
+(eval-after-load "coq"
+    '(define-key coq-goals-mode-map (kbd "C-p") 'coq-Print))
+(eval-after-load "coq"
+    '(define-key coq-response-mode-map (kbd "C-p") 'coq-Print))
+
+;; coq-response-mode-map
+;; coq-goals-mode-map
 
 (load-file "~/.emacs.d/elpa/ProofGeneral/generic/proof-site.el")
 ;(setq-default proof-three-window-enable t)
