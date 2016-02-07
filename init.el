@@ -187,3 +187,21 @@
 ;; (setq ycmd-keymap-prefix '(kbd "C-c y"))
 ;; (define-key ycmd-mode-map ycmd-keymap-prefix
 ;; 		ycmd-command-map)
+
+(add-hook 'ibuffer-mode-hook
+										'(lambda () (visual-line-mode 0)))
+
+;http://emacs.stackexchange.com/questions/620/set-column-widths-in-ibuffer
+(setq ibuffer-formats 
+      '((mark modified read-only " "
+              (name 30 30 :left :elide) ; change: 30s were originally 18s
+              " "
+              (size 9 -1 :right)
+              " "
+              (mode 16 16 :left :elide)
+              " " filename-and-process)
+        (mark " "
+              (name 16 -1)
+              " " filename)))
+
+(require-package 'markdown-mode)
