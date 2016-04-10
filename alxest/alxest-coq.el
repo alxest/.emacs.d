@@ -95,3 +95,4 @@
 ; needed for Set Ltac Debug.
 (add-hook 'coq-shell-mode-hook
           (lambda () (progn (print "A") (define-key evil-insert-state-map (kbd "<RET>") 'nil))))
+
