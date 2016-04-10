@@ -6,6 +6,8 @@
 (add-hook 'tuareg-interactive-mode-hook
 										'(lambda () (local-set-key (kbd "C-d") 'evil-scroll-down)))
 
+(define-key tuareg-mode-map (kbd "<backspace>") 'nil)
+
 ;https://github.com/realworldocaml/book/wiki/Installation-Instructions
 ;; -- opam and utop setup --------------------------------
 ;; Setup environment variables using opam
@@ -21,7 +23,7 @@
 ;; Automatically load utop.el
 (autoload 'utop "utop" "Toplevel for OCaml" t)
 (autoload 'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
-(add-hook 'tuareg-mode-hook 'utop-setup-ocaml-buffer)
+;; (add-hook 'tuareg-mode-hook 'utop-setup-ocaml-buffer)
 
 
 
@@ -78,5 +80,6 @@
 ;don't know why but cannot unbind M-. or rebind M-.
 (add-hook 'scala-mode-hook
 										'(lambda () (local-set-key (kbd "C-,") 'ensime-edit-definition)))
+(add-to-list 'auto-mode-alist '("\\.atd\\'" . tuareg-mode))
 
 (provide 'alxest-language)
