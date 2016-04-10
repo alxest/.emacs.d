@@ -10,5 +10,6 @@
 	       (package-refresh-contents))
 	     (package-install package)))
   (require package))
-
+;todo keep up-to-date
+;el-get-update-all why doesn't work
 (provide 'alxest-package)
