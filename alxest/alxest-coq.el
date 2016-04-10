@@ -47,6 +47,8 @@
     '(define-key coq-mode-map (kbd "C-q") 'pg-insert-last-output-as-comment))
 (eval-after-load "coq"
     '(define-key coq-mode-map (kbd "C-n") 'coq-LocateNotation))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-e") 'coq-Check))
 
 ;; (global-set-key "\C-l" 'coq-LocateConstant)
 ;; (global-set-key "\C-q" 'pg-insert-last-output-as-comment)
