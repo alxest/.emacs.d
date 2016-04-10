@@ -61,3 +61,5 @@ With argument, do this that many times."
 
 ;http://emacswiki.org/emacs/AutoIndentation
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
+(define-key grep-mode-map (kbd "h") nil)
