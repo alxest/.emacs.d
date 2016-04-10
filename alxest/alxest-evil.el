@@ -111,6 +111,7 @@
 
 (define-key evil-motion-state-map (kbd "C-z") 'nil)
 (define-key evil-normal-state-map (kbd "C-n") 'nil)
+(define-key evil-motion-state-map (kbd "C-e") 'nil)
 ;; C-h v evil map -> found normal-state-map, motion-state-map, etc. checked each value and found where "evil-paste-pop-next" was bound. Not motion-state-map, but normal-state-map.
 (global-set-key "\C-z" 'nil)
 
