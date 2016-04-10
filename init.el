@@ -140,8 +140,6 @@
 
 
 
-
-
 (require-package 'cil-mode)
 (require-package 'csharp-mode)
 (custom-set-variables
@@ -207,4 +205,41 @@
 (require-package 'markdown-mode)
 
 (require-package 'company-coq)
-(add-hook 'coq-mode-hook #'company-coq-mode)
+;(add-hook 'coq-mode-hook #'company-coq-mode)
+
+
+;https://www.emacswiki.org/emacs/NoTabs
+(setq-default indent-tabs-mode nil)
+
+
+
+
+
+
+
+(setq column-number-mode t)
+
+
+
+
+
+
+;(while "a" (desktop-read))
+
+
+;; (require-package 'evil-magit)
+(put 'erase-buffer 'disabled nil)
+
+
+
+ (setq company-coq-disabled-features
+        '(smart-subscripts
+          prettify-symbols
+          snippets
+          outline
+          code-folding
+          company-defaults
+          refman-scope-abbrevs-backend
+          pg-backend
+          dynamic-symbols-backend
+          obsolete-settings))
