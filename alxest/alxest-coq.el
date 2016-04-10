@@ -62,7 +62,8 @@
 ;; coq-response-mode-map
 ;; coq-goals-mode-map
 
-(load-file "~/.emacs.d/elpa/ProofGeneral/generic/proof-site.el")
+;; (load-file "~/.emacs.d/elpa/ProofGeneral/generic/proof-site.el")
+(load "~/.emacs.d/lisp/PG/generic/proof-site")
 ;(setq-default proof-three-window-enable t)
 ;(require 'coq)
 ;(setq coq-load-path (list "/home/youngju.song/compcert-2.4/lib"))
@@ -82,3 +83,15 @@
 ;(define-key evil-normal-state-map (kbd "cn") 'proof-assert-next-command-interactive)
 (define-key evil-normal-state-map (kbd "c RET") 'proof-goto-point)
 
+
+(global-set-key (kbd "C-S-t") nil)
+(defun alxest/coq-PrintLtac ()
+  (interactive)
+  (coq-ask-do "Print Ltac" "Print Ltac" nil))
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-S-t") 'alxest/coq-PrintLtac))
+
+
+; needed for Set Ltac Debug.
+(add-hook 'coq-shell-mode-hook
+          (lambda () (progn (print "A") (define-key evil-insert-state-map (kbd "<RET>") 'nil))))
