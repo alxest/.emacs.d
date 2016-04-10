@@ -107,3 +107,8 @@
 
 ;; (generate-new-buffer "*alxest-eshell*")
 ;; (get-buffer-create "*alxest-eshell*")
+
+
+
+(setq desktop-buffers-not-to-save "*eshell*")
+(setq desktop-buffers-not-to-save nil)
