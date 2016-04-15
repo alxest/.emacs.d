@@ -56,9 +56,11 @@
       (split-window-sensibly window))))
 
 
-;(global-set-key (kbd "M-x") 'helm-M-x)
-;(helm-mode 1)
-
+(global-set-key (kbd "M-x") 'helm-M-x)
+(setq helm-M-x-fuzzy-match t)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(helm-mode 1)
+(global-set-key (kbd "C-x C-d") 'helm-browse-project)
 
 
 (projectile-global-mode)
