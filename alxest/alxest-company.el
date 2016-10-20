@@ -1,6 +1,7 @@
 (require-package 'company)
 (require-package 'company-math)
-(global-company-mode)
+;; (global-company-mode)
+;; fucked in cpp mode - 2016 06 10
 (add-to-list 'company-backends 'company-math-symbols-unicode)
 (setq company-idle-delay 0)
 (setq company-math--symbols (cons #("turnstile" 0 9 (:symbol "⊢")) company-math--symbols))

@@ -48,12 +48,13 @@
 
 
 
-; Make company aware of merlin
-(add-to-list 'company-backends 'merlin-company-backend)
-; Enable company on merlin managed buffers
-(add-hook 'merlin-mode-hook 'company-mode)
-; Or enable it globally:
-; (add-hook 'after-init-hook 'global-company-mode)
+;; Fucked up, so slow
+;; ; Make company aware of merlin
+;; (add-to-list 'company-backends 'merlin-company-backend)
+;; ; Enable company on merlin managed buffers
+;; (add-hook 'merlin-mode-hook 'company-mode)
+;; ; Or enable it globally:
+;; ; (add-hook 'after-init-hook 'global-company-mode)
 
 
 
@@ -80,6 +81,28 @@
 ;don't know why but cannot unbind M-. or rebind M-.
 (add-hook 'scala-mode-hook
 										'(lambda () (local-set-key (kbd "C-,") 'ensime-edit-definition)))
+(setq ensime-startup-snapshot-notification nil)
 (add-to-list 'auto-mode-alist '("\\.atd\\'" . tuareg-mode))
 
+;https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
+(require-package 'haskell-mode)
+(require-package 'hindent)
+(add-hook 'haskell-mode-hook #'hindent-mode)
+(let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
+  (setenv "PATH" (concat my-cabal-path path-separator (getenv "PATH")))
+  (add-to-list 'exec-path my-cabal-path))
+(custom-set-variables '(haskell-tags-on-save t))
+(eval-after-load 'haskell-mode
+  '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
+(eval-after-load 'haskell-mode
+  '(define-key haskell-mode-map (kbd "C-c C-o") 'haskell-compile))
+(eval-after-load 'haskell-cabal
+  '(define-key haskell-cabal-mode-map (kbd "C-c C-o") 'haskell-compile))
+
+
+
+
+
+
+;http://stackoverflow.com/questions/26603649/haskell-repl-in-emacs
 (provide 'alxest-language)

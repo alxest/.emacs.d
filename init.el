@@ -28,7 +28,7 @@
 ; describe-font
 ; Options-Set default fonts
 ; (set-default-font "Inconsolata:pixelsize=18:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
-(set-default-font "Inconsolata 14")
+(set-default-font "Inconsolata 12")
 
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
@@ -148,6 +148,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.40")
+ '(haskell-tags-on-save t)
+ '(org-agenda-files (quote ("~/SNU/4/Archi/video.org")))
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(safe-local-variable-values (quote ((TeX-PDF-mode . t) (TeX-master . "popl")))))
 (custom-set-faces
@@ -168,23 +170,24 @@
 ;; (require-package 'ggtags)
 ;; (require-package 'setup-helm-gtags)
 
-(require-package 'ycmd)
-;; (set-variable 'ycmd-server-command '("python" "/home/youngju.song/Research/ycmd/ycmd"))
-(add-hook 'after-init-hook #'global-ycmd-mode)
-;; (add-hook 'c++-mode-hook 'ycmd-mode)
-(setq ycmd-server-command '("python" "/home/youngju.song/Research/ycmd/ycmd"))
-(add-hook 'ycmd-mode-hook
-										'(lambda () (local-set-key (kbd "C-c y .") 'ycmd-goto)))
-(add-hook 'ycmd-mode-hook
-										'(lambda () (local-set-key (kbd "C-c y t") 'ycmd-get-type)))
-(add-hook 'ycmd-mode-hook
-										'(lambda () (local-set-key (kbd "C-c y p") 'ycmd-get-parent)))
-(add-hook 'ycmd-mode-hook
-										'(lambda () (local-set-key (kbd "C-c y d") 'ycmd-show-documentation)))
-;; (define-key ycmd-mode-map ycmd-keymap-prefix nil)
-;; (setq ycmd-keymap-prefix '(kbd "C-c y"))
-;; (define-key ycmd-mode-map ycmd-keymap-prefix
-;; 		ycmd-command-map)
+;; (require-package 'ycmd)
+;; ;; (set-variable 'ycmd-server-command '("python" "/home/youngju.song/Research/ycmd/ycmd"))
+;; (add-hook 'after-init-hook #'global-ycmd-mode)
+;; ;; (add-hook 'c++-mode-hook 'ycmd-mode)
+;; (setq ycmd-server-command '("python" "/home/youngju.song/Research/ycmd/ycmd"))
+;; ;; (setq ycmd-server-command '("python" "/home/youngju.song/.vim/bundle/YouCompleteMe/third_party/ycmd"))
+;; (add-hook 'ycmd-mode-hook
+;; 										'(lambda () (local-set-key (kbd "C-c y .") 'ycmd-goto)))
+;; (add-hook 'ycmd-mode-hook
+;; 										'(lambda () (local-set-key (kbd "C-c y t") 'ycmd-get-type)))
+;; (add-hook 'ycmd-mode-hook
+;; 										'(lambda () (local-set-key (kbd "C-c y p") 'ycmd-get-parent)))
+;; (add-hook 'ycmd-mode-hook
+;; 										'(lambda () (local-set-key (kbd "C-c y d") 'ycmd-show-documentation)))
+;; ;; (define-key ycmd-mode-map ycmd-keymap-prefix nil)
+;; ;; (setq ycmd-keymap-prefix '(kbd "C-c y"))
+;; ;; (define-key ycmd-mode-map ycmd-keymap-prefix
+;; ;; 		ycmd-command-map)
 
 (add-hook 'ibuffer-mode-hook
 										'(lambda () (visual-line-mode 0)))
@@ -243,3 +246,7 @@
           pg-backend
           dynamic-symbols-backend
           obsolete-settings))
+
+;fucking long loading page
+(global-unset-key (kbd "C-h h"))
+(tool-bar-mode -1)

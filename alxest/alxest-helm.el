@@ -55,13 +55,45 @@
         ;;     (t     (or (window-next-sibling) (selected-window)))))
       (split-window-sensibly window))))
 
+(defun helm-find-files (arg)
+  "Preconfigured `helm' for helm implementation of `find-file'.
+Called with a prefix arg show history if some.
+Don't call it from programs, use `helm-find-files-1' instead.
+This is the starting point for nearly all actions you can do on files."
+  (interactive "P")
+  (let* ((hist            (and arg helm-ff-history (helm-find-files-history)))
+         ;; (default-input   (or hist (helm-find-files-initial-input)))
+         (default-input   nil)
+         (input           (cond ((and (eq major-mode 'org-agenda-mode)
+                                      org-directory
+                                      (not default-input))
+                                 (expand-file-name org-directory))
+                                ((and (eq major-mode 'dired-mode) default-input)
+                                 (file-name-directory default-input))
+                                ((and (not (string= default-input ""))
+                                      default-input))
+                                (t (expand-file-name (helm-current-directory)))))
+         (input-as-presel (null (nth 0 (file-attributes input))))
+         (presel          (helm-aif (or hist
+                                        (and input-as-presel input)
+                                        (buffer-file-name (current-buffer))
+                                        (and (eq major-mode 'dired-mode)
+                                             default-input))
+                              (if helm-ff-transformer-show-only-basename
+                                  (helm-basename it) it))))
+    (set-text-properties 0 (length input) nil input)
+    (helm-find-files-1 input (and presel (null helm-ff-no-preselect)
+                                  (concat "^" (regexp-quote presel))))))
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 (setq helm-M-x-fuzzy-match t)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (helm-mode 1)
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(global-set-key (kbd "C-c p s l") 'helm-do-ag-this-file)
 
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)

@@ -57,7 +57,32 @@
 (eval-after-load "coq"
     '(define-key coq-goals-mode-map (kbd "C-p") 'coq-Print))
 (eval-after-load "coq"
+    '(define-key coq-goals-mode-map (kbd "C-a") 'coq-SearchAbout))
+(eval-after-load "coq"
+    '(define-key coq-goals-mode-map (kbd "C-b") 'coq-About))
+(eval-after-load "coq"
+    '(define-key coq-goals-mode-map (kbd "C-k") 'proof-undo-last-successful-command))
+(eval-after-load "coq"
+    '(define-key coq-goals-mode-map (kbd "C-j") 'proof-assert-next-command-interactive))
+(eval-after-load "coq"
+    '(define-key coq-goals-mode-map (kbd "C-l") 'coq-LocateConstant))
+(eval-after-load "coq"
+    '(define-key coq-goals-mode-map (kbd "C-n") 'coq-LocateNotation))
+
+(eval-after-load "coq"
     '(define-key coq-response-mode-map (kbd "C-p") 'coq-Print))
+(eval-after-load "coq"
+    '(define-key coq-response-mode-map (kbd "C-a") 'coq-SearchAbout))
+(eval-after-load "coq"
+    '(define-key coq-response-mode-map (kbd "C-b") 'coq-About))
+(eval-after-load "coq"
+    '(define-key coq-response-mode-map (kbd "C-k") 'proof-undo-last-successful-command))
+(eval-after-load "coq"
+    '(define-key coq-response-mode-map (kbd "C-j") 'proof-assert-next-command-interactive))
+(eval-after-load "coq"
+    '(define-key coq-response-mode-map (kbd "C-l") 'coq-LocateConstant))
+(eval-after-load "coq"
+    '(define-key coq-response-mode-map (kbd "C-n") 'coq-LocateNotation))
 
 ;; coq-response-mode-map
 ;; coq-goals-mode-map
