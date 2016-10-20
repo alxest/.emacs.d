@@ -1,3 +1,10 @@
+# I Really don't know why but I have to mention el-get twice in order to work
+
+el-get
+el-get # maybe add in submodule?
+# https://github.com/xiaohanyu/oh-my-emacs/blob/master/.gitignore
+# here el-get is in .gitignore
+
 .emacs.desktop
 .emacs.desktop.lock
 *~

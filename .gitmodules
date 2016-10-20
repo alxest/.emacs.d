@@ -1,0 +1,6 @@
+[submodule "plugins/evil-org-mode"]
+	path = plugins/evil-org-mode
+	url = git://github.com/edwtjo/evil-org-mode.git
+[submodule "lisp/PG"]
+	path = lisp/PG
+	url = https://github.com/ProofGeneral/PG
