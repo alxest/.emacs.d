@@ -112,7 +112,7 @@
 
 (add-hook 'eshell-mode-hook '(lambda () (setq company-mode nil)))
 (require-package 'unbound)
-(describe-unbound-keys 5)
+;(describe-unbound-keys 5)
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 
 
