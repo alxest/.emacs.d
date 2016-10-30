@@ -13,7 +13,7 @@
 ;; Setup environment variables using opam
 (dolist
    (var (car (read-from-string
-           (shell-command-to-string "opam config env --sexp"))))
+           (shell-command-to-string "source ~/.zshrc && opam config env --sexp"))))
  (setenv (car var) (cadr var)))
 ;; Update the emacs path
 (setq exec-path (split-string (getenv "PATH") path-separator))
@@ -74,7 +74,7 @@
 
 
 ;scala modes
-(require-package 'scala-mode2)
+;(require-package 'scala-mode2)
 (require-package 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
