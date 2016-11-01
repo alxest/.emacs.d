@@ -57,6 +57,9 @@
       (setq alxest-eshell/buffer-list
 												(delq killed-buffer alxest-eshell/buffer-list)))))
 
+(eval-after-load "eshell"
+    '(define-key evil-insert-state-map (kbd "RET") 'nil))
+
 (provide 'alxest-eshell)
 
 
