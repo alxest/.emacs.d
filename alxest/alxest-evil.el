@@ -115,7 +115,11 @@
 ;; C-h v evil map -> found normal-state-map, motion-state-map, etc. checked each value and found where "evil-paste-pop-next" was bound. Not motion-state-map, but normal-state-map.
 (global-set-key "\C-z" 'nil)
 
+(require 'highlight)
 (require-package 'evil-search-highlight-persist)
-(evil-search-highlight-persist)
+(global-evil-search-highlight-persist t)
+
+;(require-package 'evil-search-highlight-persist)
+;(evil-search-highlight-persist)
 
 (provide 'alxest-evil)
