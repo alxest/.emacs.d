@@ -1,3 +1,10 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path (expand-file-name "alxest" user-emacs-directory))
 (require 'alxest-package)
 (require 'alxest-helm)
@@ -28,7 +35,7 @@
 ; describe-font
 ; Options-Set default fonts
 ; (set-default-font "Inconsolata:pixelsize=18:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
-(set-default-font "Inconsolata 12")
+;(set-default-font "Inconsolata 12")
 
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
@@ -149,7 +156,7 @@
  ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.40")
  '(haskell-tags-on-save t)
- '(org-agenda-files (quote ("~/SNU/4/Archi/video.org")))
+ '(org-agenda-files (quote ("~/test.org")))
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(safe-local-variable-values (quote ((TeX-PDF-mode . t) (TeX-master . "popl")))))
 (custom-set-faces
@@ -250,3 +257,6 @@
 ;fucking long loading page
 (global-unset-key (kbd "C-h h"))
 (tool-bar-mode -1)
+
+;don't want to change to Korean
+(global-unset-key (kbd "S-SPC"))
