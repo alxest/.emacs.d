@@ -61,9 +61,9 @@
     (evil-scroll-line-to-top ()) ;vi - zz, zt, zb
     ))
 
-(add-hook 'org-mode-hook 
-          (lambda ()
-            (local-set-key (kbd "S-SPC") 'ded/org-show-previous-heading-tidily)))
+;; (add-hook 'org-mode-hook 
+;;           (lambda ()
+;;             (local-set-key (kbd "S-SPC") 'ded/org-show-previous-heading-tidily)))
 ;; (eval-after-load "org"
 ;;     '(progn
 ;;        (define-key org-mode-map (kbd "M-RET") nil)
@@ -75,8 +75,31 @@
 ;; (global-set-key "\M-=" 'org-show-current-heading-tidily)
 
 
+;http://emacs.stackexchange.com/questions/14500/unbind-c-ret-in-emacs
+;http://stackoverflow.com/questions/13720898/emacs-how-can-i-display-only-current-task-and-hide-others-in-org-mode
+;org default function; it is also in org manual
+(define-key org-mode-map [M-return] 'org-narrow-to-subtree)
+(define-key org-mode-map (kbd "M-*") 'widen)
 
 
+
+;http://emacs.stackexchange.com/questions/2237/show-siblings-of-visible-headers-after-hide-other
+;not sure this is needed
+;I may just test with narrow/widen + evil-org-mode's gh/j/k/l
+(defun outline-focus ()
+  "Hide everything except for the current body and the parent headings.
+Unlike `hide-other' since Emacs 20, this function shows all siblings
+of visible headers."
+  (interactive)
+  (hide-sublevels 1)
+  (let (outline-view-change-hook)
+    (save-excursion
+      (outline-back-to-heading t)
+      (show-entry)
+      (while (condition-case nil (progn (outline-up-heading 1 t) (not (bobp)))
+               (error nil))
+        (show-children))))
+  (run-hooks 'outline-view-change-hook))
 
 
 (provide 'alxest-org)
