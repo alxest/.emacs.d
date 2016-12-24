@@ -156,7 +156,7 @@
  ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.40")
  '(haskell-tags-on-save t)
- '(org-agenda-files (quote ("~/test.org")))
+ '(org-agenda-files (quote ("~/Orgs/main.org")))
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(safe-local-variable-values (quote ((TeX-PDF-mode . t) (TeX-master . "popl")))))
 (custom-set-faces
