@@ -75,11 +75,11 @@
 ;; (global-set-key "\M-=" 'org-show-current-heading-tidily)
 
 
-;http://emacs.stackexchange.com/questions/14500/unbind-c-ret-in-emacs
-;http://stackoverflow.com/questions/13720898/emacs-how-can-i-display-only-current-task-and-hide-others-in-org-mode
-;org default function; it is also in org manual
-(define-key org-mode-map [M-return] 'org-narrow-to-subtree)
-(define-key org-mode-map (kbd "M-*") 'widen)
+;; http://emacs.stackexchange.com/questions/14500/unbind-c-ret-in-emacs
+;; http://stackoverflow.com/questions/13720898/emacs-how-can-i-display-only-current-task-and-hide-others-in-org-mode
+;; org default function; it is also in org manual
+;; (define-key org-mode-map [M-return] 'org-narrow-to-subtree)
+;; (define-key org-mode-map (kbd "M-*") 'widen)
 
 
 
@@ -101,5 +101,37 @@ of visible headers."
         (show-children))))
   (run-hooks 'outline-view-change-hook))
 
+;https://github.com/edwtjo/evil-org-mode/blob/master/evil-org.el
+(evil-define-key 'normal evil-org-mode-map
+  "H" 'outline-up-heading
+  "P" 'outline-previous-heading
+  "J" (if (fboundp 'org-forward-same-level) ;to be backward compatible with older org version
+	   'org-forward-same-level
+	  'org-forward-heading-same-level)
+  "K" (if (fboundp 'org-backward-same-level)
+	   'org-backward-same-level
+	  'org-backward-heading-same-level)
+  "L" 'outline-next-visible-heading
+  "gh" 'org-shiftleft
+  "gj" 'org-shiftdown
+  "gk" 'org-shiftup
+  "gl" 'org-shiftright
+  ;; originally, below two was defined as "define-key org-mode-map", but I moved to here
+  ;; I only want M-return to narrow subtree in normal mode.
+  ;; In edit mode, I want it to invoke org-meta-ret
+  [M-return] 'org-narrow-to-subtree
+  "M-*" 'widen)
+
+;; below does not work, even with "eval-after-load" blah
+;; it seems it's because that first emacs loads the mode, and then "eval-after-load" is executed, and then key binding is overwritten
+;; (define-key evil-org-mode-map (kbd "H") 'outline-up-heading)
+;; (define-key evil-org-mode-map (kbd "J") 'org-forward-heading-same-level)
+;; (define-key evil-org-mode-map (kbd "K") 'org-backward-heading-same-level)
+;; (define-key evil-org-mode-map (kbd "L") 'outline-next-visible-heading)
+
+;; (define-key evil-org-mode-map (kbd "g-h") 'org-shiftleft)
+;; (define-key evil-org-mode-map (kbd "g-j") 'org-shiftdown)
+;; (define-key evil-org-mode-map (kbd "g-k") 'org-shiftup)
+;; (define-key evil-org-mode-map (kbd "g-l") 'org-shiftright)
 
 (provide 'alxest-org)
