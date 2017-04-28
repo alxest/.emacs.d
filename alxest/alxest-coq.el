@@ -121,3 +121,12 @@
 (add-hook 'coq-shell-mode-hook
           (lambda () (progn (print "A") (define-key evil-insert-state-map (kbd "<RET>") 'nil))))
 
+;; Remove all annoying modes from auto mode lists
+
+(defun replace-alist-mode (alist oldmode newmode)
+  (dolist (aitem alist)
+    (if (eq (cdr aitem) oldmode)
+    (setcdr aitem newmode))))
+
+;; not sure what mode you want here. You could default to 'fundamental-mode
+(replace-alist-mode auto-mode-alist 'verilog-mode 'proof-general-mode)

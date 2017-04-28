@@ -35,7 +35,7 @@
 ; describe-font
 ; Options-Set default fonts
 ; (set-default-font "Inconsolata:pixelsize=18:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
-;(set-default-font "Inconsolata 12")
+(condition-case err (set-default-font "Inconsolata 12") (error (message "%s" (error-message-string err))))
 
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
@@ -158,7 +158,7 @@
  '(haskell-tags-on-save t)
  '(org-agenda-files (quote ("~/Orgs/main.org")))
  '(org-export-backends (quote (ascii html icalendar latex md)))
- '(safe-local-variable-values (quote ((TeX-PDF-mode . t) (TeX-master . "popl")))))
+ '(safe-local-variable-values (quote ((eval hi-lock-face-phrase-buffer "Vundef" (quote hi-green-b)) (eval hi-lock-face-phrase-buffer "Returnstate" (quote hi-blue-b)) (eval hi-lock-face-phrase-buffer "Callstate" (quote hi-red-b)) (coq-prog-args "-emacs-U") (eval flet ((pre (s) (concat (locate-dominating-file buffer-file-name ".dir-locals.el") s))) (setq coq-load-path (\` ((rec (\, (pre ".")) "compcert"))))) (TeX-PDF-mode . t) (TeX-master . "popl")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -260,3 +260,7 @@
 
 ;don't want to change to Korean
 (global-unset-key (kbd "S-SPC"))
+
+;coq c-p splits word with "_"; really annoying.
+;http://emacs.stackexchange.com/questions/9583/how-to-treat-underscore-as-part-of-the-word
+(modify-syntax-entry ?_ "w")
