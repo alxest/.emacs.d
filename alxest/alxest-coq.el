@@ -123,6 +123,7 @@
 
 ;; Remove all annoying modes from auto mode lists
 
+;; http://stackoverflow.com/questions/9625109/how-to-disable-verilog-mode-in-emacs
 (defun replace-alist-mode (alist oldmode newmode)
   (dolist (aitem alist)
     (if (eq (cdr aitem) oldmode)
