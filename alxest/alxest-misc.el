@@ -29,6 +29,7 @@ With argument, do this that many times."
 (global-set-key (kbd "M-{") '(lambda () (interactive) (other-window -1)))
 (global-set-key (kbd "C-M-}") 'other-frame)
 (global-set-key (kbd "C-M-{") '(lambda () (interactive) (other-frame -1)))
+(global-set-key (kbd "M-`") 'other-frame)
 
 (require-package 'undo-tree)
 (global-undo-tree-mode 1)
@@ -60,6 +61,7 @@ With argument, do this that many times."
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;http://emacswiki.org/emacs/AutoIndentation
-(define-key global-map (kbd "RET") 'newline-and-indent)
+;; (define-key global-map (kbd "RET") 'newline-and-indent)
+(define-key global-map (kbd "<RET>") 'evil-ret-and-indent)
 
 (define-key grep-mode-map (kbd "h") nil)

@@ -98,7 +98,11 @@
 ;(define-key evil-normal-state-map "c" nil)
 
 ;https://github.com/GriffinSchneider/emacs-config/blob/master/evil-mode-customizations.el
-(evil-global-set-key 'insert (kbd "<RET>") 'evil-ret-and-indent)
+;; (evil-global-set-key 'insert (kbd "<RET>") 'evil-ret-and-indent)
+;; Problem: it sets globally, including eshell-mode
+;; google "evil-mode eshell ret" -> https://github.com/asok/.emacs.d/blob/master/inits/init-evil.el
+(define-key evil-insert-state-map (kbd "<RET>") 'evil-ret-and-indent)
+(evil-define-key `insert eshell-mode-map (kbd "RET") #'eshell-send-input)
 
 (define-key evil-normal-state-map "C" nil)
 
