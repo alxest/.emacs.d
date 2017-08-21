@@ -1,5 +1,49 @@
 (provide 'alxest-coq)
 
+(defconst VELLVM "/opt/devel/youngju.song/youngju.song/simplberry-compile/lib/vellvm/src/Vellvm")
+(defconst SIMPLBERRY "/opt/devel/youngju.song/youngju.song/simplberry-compile/coq/")
+
+(defun my-gcd ()
+  (interactive)
+  (let ((name (if (region-active-p)
+                  (buffer-substring (region-beginning) (region-end))
+                (progn
+                  (push-mark)
+                  (thing-at-point 'symbol)))))
+    (progn (print (let ((default-directory VELLVM))
+                    (shell-command-to-string (format "ag \"%s\"" name)
+                                             ;; "echo $PWD"
+                                             )))
+           (print (let ((default-directory SIMPLBERRY))
+                    (shell-command-to-string (format "ag \"%s\"" name)
+                                             ;; "echo $PWD"
+                                             ))))
+    )
+  )
+
+(eval-after-load "coq"
+    '(define-key coq-mode-map (kbd "C-c e") 'my-gcd))
+
+(defun my-gcd (name)
+  "Get Coq Definitions"
+  (interactive (list (read-string "name: "
+                                  (if (region-active-p)
+                                      (buffer-substring (region-beginning) (region-end))
+                                    (progn
+                                      (push-mark)
+                                      (thing-at-point 'symbol))))))
+  (progn (print (let ((default-directory VELLVM))
+                  (shell-command-to-string (format "ag %s" name)
+                   ;; "echo $PWD"
+                                           )))
+         (print (let ((default-directory SIMPLBERRY))
+                  (shell-command-to-string (format "ag %s" name)
+                   ;; "echo $PWD"
+                                           ))))
+
+  ;; (progn (print (eshell-command (format "ag %s %s" name VELLVM)))
+  ;;        (print (eshell-command (format "ag %s %s" name SIMPLBERRY))))
+  )
 
 ;; Grep Coq Definitions
 (defun grep-coq-def (name directory)
