@@ -31,10 +31,23 @@
 
 
 
-(setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
-(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
+;; (setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
+;; (add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
 (require-package 'merlin)
-(add-hook 'tuareg-mode-hook 'merlin-mode)
+;; (add-hook 'tuareg-mode-hook 'merlin-mode)
+
+
+(let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+  (when (and opam-share (file-directory-p opam-share))
+    ;; Register Merlin
+    (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+    (autoload 'merlin-mode "merlin" nil t nil)
+    ;; Automatically start it in OCaml buffers
+    (add-hook 'tuareg-mode-hook 'merlin-mode t)
+    (add-hook 'caml-mode-hook 'merlin-mode t)
+    ;; Use opam switch to lookup ocamlmerlin binary
+    (setq merlin-command 'opam)))
+
 (eval-after-load "merlin"
     '(define-key merlin-mode-map (kbd "C-c C-.") 'merlin-error-reset))
 
@@ -56,7 +69,8 @@
 ;; ; Or enable it globally:
 ;; ; (add-hook 'after-init-hook 'global-company-mode)
 
-
+(add-hook 'merlin-mode-hook (lambda () (setq company-mode nil)))
+(eval-after-load "merlin" '(setq company-mode nil))
 
 ;; (setq merlin-locate-focus-new-window
 (setq merlin-locate-in-new-window 'never)
