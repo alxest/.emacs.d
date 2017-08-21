@@ -11,6 +11,15 @@
 ;https://github.com/realworldocaml/book/wiki/Installation-Instructions
 ;; -- opam and utop setup --------------------------------
 ;; Setup environment variables using opam
+
+;; -- Tweaks for OS X -------------------------------------
+;; Tweak for problem on OS X where Emacs.app doesn't run the right
+;; init scripts when invoking a sub-shell
+(cond
+ ((eq window-system 'ns) ; macosx
+  ;; Invoke login shells, so that .profile or .bash_profile is read
+  (setq shell-command-switch "-lc")))
+
 (dolist
    (var (car (read-from-string
            (shell-command-to-string "source ~/.zshrc && opam config env --sexp"))))
