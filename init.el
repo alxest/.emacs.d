@@ -35,7 +35,10 @@
 ; describe-font
 ; Options-Set default fonts
 ; (set-default-font "Inconsolata:pixelsize=18:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
-(condition-case err (set-default-font "Inconsolata 10") (error (message "%s" (error-message-string err))))
+(condition-case err
+    ;; (set-default-font "Inconsolata 6")
+    (set-default-font "Inconsolata:pixelsize=15:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
+  (error (message "%s" (error-message-string err))))
 
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
@@ -136,13 +139,14 @@
 
 
 ;http://stackoverflow.com/questions/9435019/how-do-i-source-my-zshrc-within-emacs
-(let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
-  (setenv "PATH" path)
-  (setq exec-path 
-        (append
-         (split-string-and-unquote path ":")
-         exec-path)))
-
+;; (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
+;;   (setenv "PATH" path)
+;;   (setq exec-path 
+;;         (append
+;;          (split-string-and-unquote path ":")
+;;          exec-path)))
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 
 
@@ -202,11 +206,11 @@
 ;http://emacs.stackexchange.com/questions/620/set-column-widths-in-ibuffer
 (setq ibuffer-formats 
       '((mark modified read-only " "
-              (name 30 30 :left :elide) ; change: 30s were originally 18s
+              (name 36 36 :left :elide) ; original: 18
               " "
               (size 9 -1 :right)
               " "
-              (mode 16 16 :left :elide)
+              (mode 10 10 :left :elide) ; original: 16
               " " filename-and-process)
         (mark " "
               (name 16 -1)

@@ -15,5 +15,7 @@
 ;; (add-hook 'eshell-mode-hook
 ;;     '(lambda () (setq company-mode nil)))
 
+;; (global-company-mode '(not tuareg-mode))
+(setq global-company-mode nil)
 
 (provide 'alxest-company)

@@ -20,10 +20,10 @@
   ;; Invoke login shells, so that .profile or .bash_profile is read
   (setq shell-command-switch "-lc")))
 
-(dolist
-   (var (car (read-from-string
-           (shell-command-to-string "source ~/.zshrc && opam config env --sexp"))))
- (setenv (car var) (cadr var)))
+;; (dolist
+;;    (var (car (read-from-string
+;;            (shell-command-to-string "source ~/.zshrc && opam config env --sexp"))))
+;;  (setenv (car var) (cadr var)))
 ;; Update the emacs path
 (setq exec-path (split-string (getenv "PATH") path-separator))
 ;; Update the emacs load path
@@ -80,6 +80,9 @@
 
 (add-hook 'merlin-mode-hook (lambda () (setq company-mode nil)))
 (eval-after-load "merlin" '(setq company-mode nil))
+(add-hook 'tuareg-mode-hook (lambda () (setq company-mode nil)))
+(eval-after-load "tuareg" '(setq company-mode nil))
+
 
 ;; (setq merlin-locate-focus-new-window
 (setq merlin-locate-in-new-window 'never)
