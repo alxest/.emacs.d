@@ -128,6 +128,20 @@
 
 
 
+;copied from https://github.com/rust-lang/rust-mode
+(require-package 'rust-mode)
+(setq rust-format-on-save nil)
+
+(require-package 'racer)
+;copied from https://github.com/racer-rust/emacs-racer
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+
+(require 'rust-mode)
+(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+
 
 
 ;http://stackoverflow.com/questions/26603649/haskell-repl-in-emacs
