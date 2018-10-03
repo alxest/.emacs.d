@@ -145,6 +145,7 @@
 ;;         (append
 ;;          (split-string-and-unquote path ":")
 ;;          exec-path)))
+(require-package 'exec-path-from-shell)
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
