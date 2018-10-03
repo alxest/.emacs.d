@@ -9,7 +9,7 @@
 (setq company-math--symbols (cons #("conjunction" 0 11 (:symbol "∧")) company-math--symbols))
 (setq company-math--symbols (cons #("disjunction" 0 11 (:symbol "∨")) company-math--symbols))
 
-
+(setq comapny-async-timeout 0.5)
 ;; (add-hook 'tuareg-interactive-mode-hook
 ;;     '(lambda () (setq company-mode nil)))
 ;; (add-hook 'eshell-mode-hook
