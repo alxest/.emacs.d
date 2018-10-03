@@ -118,7 +118,7 @@
 
 
 (add-hook 'eshell-mode-hook '(lambda () (setq company-mode nil)))
-(require-package 'unbound)
+;(require-package 'unbound)
 ;(describe-unbound-keys 5)
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 
@@ -158,7 +158,33 @@
  '(haskell-tags-on-save t)
  '(org-agenda-files (quote ("~/Orgs/main.org")))
  '(org-export-backends (quote (ascii html icalendar latex md)))
- '(safe-local-variable-values (quote ((TeX-master . "main") (eval hi-lock-face-phrase-buffer "Vundef" (quote hi-green-b)) (eval hi-lock-face-phrase-buffer "Returnstate" (quote hi-blue-b)) (eval hi-lock-face-phrase-buffer "Callstate" (quote hi-red-b)) (coq-prog-args "-emacs-U") (eval flet ((pre (s) (concat (locate-dominating-file buffer-file-name ".dir-locals.el") s))) (setq coq-load-path (\` ((rec (\, (pre ".")) "compcert"))))) (TeX-PDF-mode . t) (TeX-master . "popl")))))
+ '(package-selected-packages
+   (quote
+    (llvm-mode circe company-coq markdown-mode ecb sr-speedbar fsharp-mode csharp-mode cil-mode xcscope tuareg multiple-cursors merlin magit hindent helm-projectile haskell-mode evil-search-highlight-persist evil-leader ensime dictionary company-math color-theme-solarized bm)))
+ '(safe-local-variable-values
+   (quote
+    ((TeX-master . "main")
+     (eval hi-lock-face-phrase-buffer "Vundef"
+           (quote hi-green-b))
+     (eval hi-lock-face-phrase-buffer "Returnstate"
+           (quote hi-blue-b))
+     (eval hi-lock-face-phrase-buffer "Callstate"
+           (quote hi-red-b))
+     (coq-prog-args "-emacs-U")
+     (eval flet
+           ((pre
+             (s)
+             (concat
+              (locate-dominating-file buffer-file-name ".dir-locals.el")
+              s)))
+           (setq coq-load-path
+                 (\`
+                  ((rec
+                    (\,
+                     (pre "."))
+                    "compcert")))))
+     (TeX-PDF-mode . t)
+     (TeX-master . "popl")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

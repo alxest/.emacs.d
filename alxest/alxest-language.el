@@ -1,4 +1,4 @@
-(require-package 'llvm-mode)
+;(require-package 'llvm-mode)
 (require-package 'tuareg)
 
 (eval-after-load "tuareg"

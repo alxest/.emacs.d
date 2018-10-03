@@ -98,4 +98,6 @@ This is the starting point for nearly all actions you can do on files."
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (provide 'alxest-helm)

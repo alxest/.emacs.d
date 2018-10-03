@@ -65,7 +65,10 @@
     '(define-key coq-mode-map (kbd "C-c C-h") 'proof-undo-last-successful-command))
 ;; (eval-after-load "coq-goal"
 ;;     '(define-key coq-mode-map (kbd "C-c C-h") 'proof-undo-last-successful-command))
-(add-hook 'coq-mode-hook '(lambda () (setq undo-tree-mode t)))
+;(add-hook 'coq-mode-hook '(lambda () (progn (print "ABCD") (setq undo-tree-mode 1)))) <--------- THIS DOES NOT WORK!!!!
+(add-hook 'coq-mode-hook '(lambda () (undo-tree-mode 1)))
+(eval-after-load "coq" '(setq undo-tree-mode 1))
+(add-hook 'coq-mode-hook '(lambda () (setq holes-mode nil)))
 (eval-after-load "coq"
 		'(define-key coq-mode-map (kbd "C-c C-;") 'comment-or-uncomment-region))
 (eval-after-load "coq"
