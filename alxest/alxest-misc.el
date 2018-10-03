@@ -65,3 +65,6 @@ With argument, do this that many times."
 (define-key global-map (kbd "<RET>") 'evil-ret-and-indent)
 
 (define-key grep-mode-map (kbd "h") nil)
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)

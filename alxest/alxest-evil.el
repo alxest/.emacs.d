@@ -103,6 +103,7 @@
 ;; Problem: it sets globally, including eshell-mode
 ;; google "evil-mode eshell ret" -> https://github.com/asok/.emacs.d/blob/master/inits/init-evil.el
 
+;; (evil-define-key `insert coq-mode-map (kbd "RET") #'evil-ret)
 ;; THIS IS THE ANSWER: https://github.com/syl20bnr/spacemacs/issues/6662
 (evil-define-key 'insert evil-insert-state-map (kbd "RET") #'evil-ret-and-indent)
 ;; (define-key evil-insert-state-map (kbd "<RET>") 'evil-ret-and-indent)
