@@ -178,3 +178,15 @@
 
 ;; not sure what mode you want here. You could default to 'fundamental-mode
 (replace-alist-mode auto-mode-alist 'verilog-mode 'proof-general-mode)
+
+
+
+(add-hook 'coq-mode-hook 'coq-commenter-mode)
+(add-hook 'coq-commenter-mode-hook
+          (lambda () (define-key coq-commenter-mode-map
+                       (kbd "C-;")
+                       #'coq-commenter-comment-proof-in-region)))
+(add-hook 'coq-commenter-mode-hook
+          (lambda () (define-key coq-commenter-mode-map
+                       (kbd "C-'")
+                       #'coq-commenter-uncomment-proof-in-region)))

@@ -103,6 +103,7 @@
 ;(require-package 'scala-mode2)
 (require-package 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+(setq ensime-startup-notification nil)
 
 ;don't know why but cannot unbind M-. or rebind M-.
 (add-hook 'scala-mode-hook
@@ -141,7 +142,34 @@
 
 (require 'rust-mode)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+(define-key rust-mode-map (kbd "C-c d") #'racer-describe-tooltip)
+(define-key rust-mode-map (kbd "C-c D") #'racer-describe)
 (setq company-tooltip-align-annotations t)
+
+
+
+
+;https://github.com/ananthakumaran/tide
+(require-package 'tide)
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 
 

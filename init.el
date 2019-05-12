@@ -39,6 +39,7 @@
     ;; (set-default-font "Inconsolata 6")
     (set-default-font "Inconsolata:pixelsize=15:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
   (error (message "%s" (error-message-string err))))
+(set-frame-font "Inconsolata-11")
 
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
@@ -165,10 +166,17 @@
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(package-selected-packages
    (quote
-    (llvm-mode circe company-coq markdown-mode ecb sr-speedbar fsharp-mode csharp-mode cil-mode xcscope tuareg multiple-cursors merlin magit hindent helm-projectile haskell-mode evil-search-highlight-persist evil-leader ensime dictionary company-math color-theme-solarized bm)))
+    (tide coq-commenter llvm-mode circe company-coq markdown-mode ecb sr-speedbar fsharp-mode csharp-mode cil-mode xcscope tuareg multiple-cursors merlin magit hindent helm-projectile haskell-mode evil-search-highlight-persist evil-leader ensime dictionary company-math color-theme-solarized bm)))
  '(safe-local-variable-values
    (quote
-    ((TeX-master . "main")
+    ((eval let
+           ((default-directory
+              (locate-dominating-file buffer-file-name ".dir-locals.el")))
+           (make-local-variable
+            (quote coq-prog-name))
+           (setq coq-prog-name
+                 (expand-file-name "../hoqtop")))
+     (TeX-master . "main")
      (eval hi-lock-face-phrase-buffer "Vundef"
            (quote hi-green-b))
      (eval hi-lock-face-phrase-buffer "Returnstate"
@@ -233,7 +241,7 @@
 ;http://emacs.stackexchange.com/questions/620/set-column-widths-in-ibuffer
 (setq ibuffer-formats 
       '((mark modified read-only " "
-              (name 36 36 :left :elide) ; original: 18
+              (name 25 25 :left :elide) ; original: 18
               " "
               (size 9 -1 :right)
               " "
