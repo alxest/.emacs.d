@@ -39,7 +39,7 @@
     ;; (set-default-font "Inconsolata 6")
     (set-default-font "Inconsolata:pixelsize=15:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
   (error (message "%s" (error-message-string err))))
-(set-frame-font "Inconsolata-11")
+(set-frame-font "Inconsolata-15")
 
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
@@ -139,17 +139,6 @@
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 
-;http://stackoverflow.com/questions/9435019/how-do-i-source-my-zshrc-within-emacs
-;; (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
-;;   (setenv "PATH" path)
-;;   (setq exec-path 
-;;         (append
-;;          (split-string-and-unquote path ":")
-;;          exec-path)))
-(require-package 'exec-path-from-shell)
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
-
 
 
 
@@ -166,7 +155,7 @@
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(package-selected-packages
    (quote
-    (tide coq-commenter llvm-mode circe company-coq markdown-mode ecb sr-speedbar fsharp-mode csharp-mode cil-mode xcscope tuareg multiple-cursors merlin magit hindent helm-projectile haskell-mode evil-search-highlight-persist evil-leader ensime dictionary company-math color-theme-solarized bm)))
+    (go-mode lsp-mode lsp-rust lsp racer helm-ag tide coq-commenter llvm-mode circe company-coq markdown-mode ecb sr-speedbar fsharp-mode csharp-mode cil-mode xcscope tuareg multiple-cursors merlin magit hindent helm-projectile haskell-mode evil-search-highlight-persist evil-leader ensime dictionary company-math color-theme-solarized bm)))
  '(safe-local-variable-values
    (quote
     ((eval let
@@ -306,3 +295,10 @@
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
+
+;; https://github.com/emacs-lsp/lsp-java/issues/142
+;; https://github.com/syl20bnr/spacemacs/issues/12535
+;; https://github.com/emacs-lsp/lsp-mode/issues/804
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+

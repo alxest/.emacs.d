@@ -133,21 +133,22 @@
 (require-package 'rust-mode)
 (setq rust-format-on-save nil)
 
+(exec-path-from-shell-copy-env "RUST_SRC_PATH") ;; needed for proper setting of racer-rust-src-path
 (require-package 'racer)
 ;copied from https://github.com/racer-rust/emacs-racer
-(add-hook 'rust-mode-hook #'racer-mode)
+;; (add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'rust-mode-hook #'lsp)
 (add-hook 'racer-mode-hook #'eldoc-mode)
 ;; (add-hook 'racer-mode-hook #'company-mode)
 (add-hook 'racer-mode-hook (lambda () (setq company-mode nil)))
 
 (require 'rust-mode)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
-(define-key rust-mode-map (kbd "C-c d") #'racer-describe-tooltip)
-(define-key rust-mode-map (kbd "C-c D") #'racer-describe)
+(define-key rust-mode-map (kbd "M-.") #'lsp-find-definition)
+(define-key rust-mode-map (kbd "C-c C-x") #'flymake-goto-next-error)
+;; (define-key rust-mode-map (kbd "C-c d") #'racer-describe-tooltip)
+;; (define-key rust-mode-map (kbd "C-c D") #'racer-describe)
 (setq company-tooltip-align-annotations t)
-
-
-
 
 ;https://github.com/ananthakumaran/tide
 (require-package 'tide)

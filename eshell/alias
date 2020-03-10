@@ -1,1 +1,2 @@
+alias [demo]:  $*
 alias l ls

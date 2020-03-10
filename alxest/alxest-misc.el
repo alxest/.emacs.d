@@ -68,3 +68,16 @@ With argument, do this that many times."
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+
+
+;http://stackoverflow.com/questions/9435019/how-do-i-source-my-zshrc-within-emacs
+;; (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
+;;   (setenv "PATH" path)
+;;   (setq exec-path 
+;;         (append
+;;          (split-string-and-unquote path ":")
+;;          exec-path)))
+(require-package 'exec-path-from-shell)
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
