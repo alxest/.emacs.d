@@ -101,14 +101,8 @@
 
 ;scala modes
 ;(require-package 'scala-mode2)
-(require-package 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-(setq ensime-startup-notification nil)
 
 ;don't know why but cannot unbind M-. or rebind M-.
-(add-hook 'scala-mode-hook
-										'(lambda () (local-set-key (kbd "C-,") 'ensime-edit-definition)))
-(setq ensime-startup-snapshot-notification nil)
 (add-to-list 'auto-mode-alist '("\\.atd\\'" . tuareg-mode))
 
 ;https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md

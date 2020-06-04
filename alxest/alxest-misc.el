@@ -41,10 +41,6 @@ With argument, do this that many times."
 (global-set-key (kbd "C-S-b p") 'bm-previous)
 
 
-(require-package 'color-theme)
-(require-package 'color-theme-solarized)
-(load-theme 'solarized t)
-
 ;;http://emacsredux.com/blog/2013/04/01/highlight-matching-parentheses/
 (require-package 'paren)
 (setq show-paren-style 'parenthesis)
@@ -81,3 +77,6 @@ With argument, do this that many times."
 (require-package 'exec-path-from-shell)
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
+
+(require-package 'solarized-theme)
+(load-theme 'solarized-light t)

@@ -24,3 +24,5 @@ ensime
 
 ac-comphist.dat
 .lsp-session*
+
+transient/
