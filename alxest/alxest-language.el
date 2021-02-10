@@ -138,9 +138,10 @@
 ;copied from https://github.com/racer-rust/emacs-racer
 ;; (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'rust-mode-hook #'lsp)
-(add-hook 'racer-mode-hook #'eldoc-mode)
+;; (add-hook 'racer-mode-hook #'eldoc-mode)
 ;; (add-hook 'racer-mode-hook #'company-mode)
-(add-hook 'racer-mode-hook (lambda () (setq company-mode nil)))
+;; (add-hook 'racer-mode-hook (lambda () (setq company-mode nil)))
+(setq lsp-rust-server 'rust-analyzer)
 
 (require 'rust-mode)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)

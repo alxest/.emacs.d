@@ -78,7 +78,7 @@
 (eval-after-load "coq"
     '(define-key coq-mode-map (kbd "C-p") 'coq-Print))
 (eval-after-load "coq"
-    '(define-key coq-mode-map (kbd "C-a") 'coq-SearchAbout))
+    '(define-key coq-mode-map (kbd "C-a") 'coq-Search))
 (eval-after-load "coq"
     '(define-key coq-mode-map (kbd "C-b") 'coq-About))
 ;; (eval-after-load "coq"
@@ -104,7 +104,7 @@
 (eval-after-load "coq"
     '(define-key coq-goals-mode-map (kbd "C-p") 'coq-Print))
 (eval-after-load "coq"
-    '(define-key coq-goals-mode-map (kbd "C-a") 'coq-SearchAbout))
+    '(define-key coq-goals-mode-map (kbd "C-a") 'coq-Search))
 (eval-after-load "coq"
     '(define-key coq-goals-mode-map (kbd "C-b") 'coq-About))
 (eval-after-load "coq"
@@ -119,7 +119,7 @@
 (eval-after-load "coq"
     '(define-key coq-response-mode-map (kbd "C-p") 'coq-Print))
 (eval-after-load "coq"
-    '(define-key coq-response-mode-map (kbd "C-a") 'coq-SearchAbout))
+    '(define-key coq-response-mode-map (kbd "C-a") 'coq-Search))
 (eval-after-load "coq"
     '(define-key coq-response-mode-map (kbd "C-b") 'coq-About))
 (eval-after-load "coq"

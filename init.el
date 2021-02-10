@@ -18,6 +18,7 @@
 (require 'alxest-company)
 (require 'alxest-language)
 (require 'alxest-coq)
+(require 'alxest-latex)
 
 (server-force-delete)
 (server-start)
