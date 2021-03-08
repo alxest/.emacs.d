@@ -135,7 +135,7 @@
 ;; coq-goals-mode-map
 
 ;; (load-file "~/.emacs.d/elpa/ProofGeneral/generic/proof-site.el")
-(load "~/.emacs.d/lisp/PG/generic/proof-site")
+; (load "~/.emacs.d/lisp/PG/generic/proof-site")
 ;(setq-default proof-three-window-enable t)
 ;(require 'coq)
 ;(setq coq-load-path (list "/home/youngju.song/compcert-2.4/lib"))

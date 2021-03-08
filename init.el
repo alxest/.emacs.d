@@ -19,6 +19,7 @@
 (require 'alxest-language)
 (require 'alxest-coq)
 (require 'alxest-latex)
+(require 'alxest-unicode)
 
 (server-force-delete)
 (server-start)
@@ -38,9 +39,9 @@
 ; (set-default-font "Inconsolata:pixelsize=18:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
 (condition-case err
     ;; (set-default-font "Inconsolata 6")
-    (set-default-font "Inconsolata:pixelsize=15:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
+    (set-default-font "Inconsolata:pixelsize=14:foundry=unknown:weight=normal:slant=normal:width=normal:spacing=100:scalable=true")
   (error (message "%s" (error-message-string err))))
-(set-frame-font "Inconsolata-15")
+(set-frame-font "Inconsolata-14")
 
 ;(setenv "PATH" (concat "~/.local/coq8.4pl5/bin:" (getenv "PATH")))
 ;(require-package 'unicode-fonts)
@@ -152,27 +153,21 @@
  ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.40")
  '(haskell-tags-on-save t)
- '(org-agenda-files (quote ("~/Orgs/main.org")))
- '(org-export-backends (quote (ascii html icalendar latex md)))
+ '(org-agenda-files '("~/Orgs/main.org"))
+ '(org-export-backends '(ascii html icalendar latex md))
  '(package-selected-packages
-   (quote
-    (go-mode lsp-mode lsp-rust lsp racer helm-ag tide coq-commenter llvm-mode circe company-coq markdown-mode ecb sr-speedbar fsharp-mode csharp-mode cil-mode xcscope tuareg multiple-cursors merlin magit hindent helm-projectile haskell-mode evil-search-highlight-persist evil-leader ensime dictionary company-math color-theme-solarized bm)))
+   '(proof-general lsp-haskell lsp-ui go-mode lsp-mode lsp-rust lsp racer helm-ag tide coq-commenter llvm-mode circe company-coq markdown-mode ecb sr-speedbar fsharp-mode csharp-mode cil-mode xcscope tuareg multiple-cursors merlin magit hindent helm-projectile haskell-mode evil-search-highlight-persist evil-leader ensime dictionary company-math color-theme-solarized bm))
  '(safe-local-variable-values
-   (quote
-    ((eval let
+   '((eval let
            ((default-directory
               (locate-dominating-file buffer-file-name ".dir-locals.el")))
-           (make-local-variable
-            (quote coq-prog-name))
+           (make-local-variable 'coq-prog-name)
            (setq coq-prog-name
                  (expand-file-name "../hoqtop")))
      (TeX-master . "main")
-     (eval hi-lock-face-phrase-buffer "Vundef"
-           (quote hi-green-b))
-     (eval hi-lock-face-phrase-buffer "Returnstate"
-           (quote hi-blue-b))
-     (eval hi-lock-face-phrase-buffer "Callstate"
-           (quote hi-red-b))
+     (eval hi-lock-face-phrase-buffer "Vundef" 'hi-green-b)
+     (eval hi-lock-face-phrase-buffer "Returnstate" 'hi-blue-b)
+     (eval hi-lock-face-phrase-buffer "Callstate" 'hi-red-b)
      (coq-prog-args "-emacs-U")
      (eval flet
            ((pre
@@ -181,13 +176,10 @@
               (locate-dominating-file buffer-file-name ".dir-locals.el")
               s)))
            (setq coq-load-path
-                 (\`
-                  ((rec
-                    (\,
-                     (pre "."))
-                    "compcert")))))
+                 `((rec ,(pre ".")
+                        "compcert"))))
      (TeX-PDF-mode . t)
-     (TeX-master . "popl")))))
+     (TeX-master . "popl"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
