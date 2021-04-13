@@ -146,46 +146,6 @@
 
 (require-package 'cil-mode)
 (require-package 'csharp-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ecb-options-version "2.40")
- '(haskell-tags-on-save t)
- '(org-agenda-files '("~/Orgs/main.org"))
- '(org-export-backends '(ascii html icalendar latex md))
- '(package-selected-packages
-   '(proof-general lsp-haskell lsp-ui go-mode lsp-mode lsp-rust lsp racer helm-ag tide coq-commenter llvm-mode circe company-coq markdown-mode ecb sr-speedbar fsharp-mode csharp-mode cil-mode xcscope tuareg multiple-cursors merlin magit hindent helm-projectile haskell-mode evil-search-highlight-persist evil-leader ensime dictionary company-math color-theme-solarized bm))
- '(safe-local-variable-values
-   '((eval let
-           ((default-directory
-              (locate-dominating-file buffer-file-name ".dir-locals.el")))
-           (make-local-variable 'coq-prog-name)
-           (setq coq-prog-name
-                 (expand-file-name "../hoqtop")))
-     (TeX-master . "main")
-     (eval hi-lock-face-phrase-buffer "Vundef" 'hi-green-b)
-     (eval hi-lock-face-phrase-buffer "Returnstate" 'hi-blue-b)
-     (eval hi-lock-face-phrase-buffer "Callstate" 'hi-red-b)
-     (coq-prog-args "-emacs-U")
-     (eval flet
-           ((pre
-             (s)
-             (concat
-              (locate-dominating-file buffer-file-name ".dir-locals.el")
-              s)))
-           (setq coq-load-path
-                 `((rec ,(pre ".")
-                        "compcert"))))
-     (TeX-PDF-mode . t)
-     (TeX-master . "popl"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (require-package 'fsharp-mode)
 (setq inferior-fsharp-program "/usr/bin/fsharpi --readline-")
@@ -295,3 +255,18 @@
 ;; https://github.com/emacs-lsp/lsp-mode/issues/804
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-export-backends '(ascii html icalendar latex md))
+ '(package-selected-packages
+   '(helm-ag solarized-theme color-theme-solarized xcscope undo-tree tuareg tide sr-speedbar racer proof-general multiple-cursors merlin magit lsp-haskell helm-projectile fsharp-mode exec-path-from-shell evil-search-highlight-persist evil-leader ecb dictionary csharp-mode company-coq color-theme-modern cil-mode bm)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(put 'scroll-left 'disabled nil)

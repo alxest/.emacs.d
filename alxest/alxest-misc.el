@@ -41,9 +41,11 @@ With argument, do this that many times."
 (global-set-key (kbd "C-S-b p") 'bm-previous)
 
 
-(require-package 'color-theme)
-(require-package 'color-theme-solarized)
-(load-theme 'solarized t)
+(require-package 'color-theme-modern)
+(require-package 'solarized-theme)
+;(require-package 'color-theme-solarized)
+;(load-theme 'solarized t)
+(load-theme 'solarized-light t)
 
 ;;http://emacsredux.com/blog/2013/04/01/highlight-matching-parentheses/
 (require-package 'paren)

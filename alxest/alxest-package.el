@@ -4,7 +4,7 @@
 ;;              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(package-initialize)
+;; (package-initialize)
 
 (defun require-package (package)
   "Install package if not yet installed, then execute (require package)"

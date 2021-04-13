@@ -116,3 +116,14 @@
 
 (setq desktop-buffers-not-to-save "*eshell*")
 (setq desktop-buffers-not-to-save nil)
+;; (add-hook 'eshell-mode-hook #'company-mode)
+;; (add-hook 'eshell-mode-hook
+;;           (lambda ()
+;;             (define-key eshell-mode-map (kbd "<f9>") #'emacs-version)))
+;; (eval-after-load "eshell"
+;;   '(define-key eshell-mode-map (kbd "TAB") #'company-complete))
+
+
+(add-hook 'eshell-mode-hook (lambda () (helm-mode -1)))
+(setq completion-auto-help nil)
+(setq completion-cycle-threshold 5)

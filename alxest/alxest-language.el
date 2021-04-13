@@ -101,14 +101,14 @@
 
 ;scala modes
 ;(require-package 'scala-mode2)
-(require-package 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-(setq ensime-startup-notification nil)
+;(require-package 'ensime)
+;(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;(setq ensime-startup-notification nil)
 
 ;don't know why but cannot unbind M-. or rebind M-.
-(add-hook 'scala-mode-hook
-										'(lambda () (local-set-key (kbd "C-,") 'ensime-edit-definition)))
-(setq ensime-startup-snapshot-notification nil)
+;(add-hook 'scala-mode-hook
+;										'(lambda () (local-set-key (kbd "C-,") 'ensime-edit-definition)))
+;(setq ensime-startup-snapshot-notification nil)
 (add-to-list 'auto-mode-alist '("\\.atd\\'" . tuareg-mode))
 
 ;https://github.com/serras/emacs-haskell-tutorial/blob/master/tutorial.md
@@ -126,7 +126,10 @@
 ;; (eval-after-load 'haskell-cabal
 ;;   '(define-key haskell-cabal-mode-map (kbd "C-c C-o") 'haskell-compile))
 (require-package 'lsp-mode)
-;; (require-package 'lsp-haskell)
+(require-package 'lsp-haskell)
+;(require-package 'lsp-ui)
+(add-hook 'haskell-mode-hook #'lsp)
+(add-hook 'haskell-literate-mode-hook #'lsp)
 
 
 

@@ -1,6 +1,10 @@
 (setq evil-want-abbrev-expand-on-insert-exit nil)
 (require-package 'evil)
 (evil-mode 1)
+(global-undo-tree-mode)
+(evil-set-undo-system 'undo-tree)
+;; (setq evil-undo-system 'undo-tree)
+
 (global-set-key "\M-d" 'evil-scroll-up)
 (global-set-key "\C-u" 'evil-scroll-up)
 

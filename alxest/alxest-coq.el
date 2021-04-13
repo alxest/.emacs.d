@@ -1,5 +1,7 @@
 (provide 'alxest-coq)
 
+(package-install 'proof-general)
+
 (defconst VELLVM "/opt/devel/youngju.song/youngju.song/simplberry-compile/lib/vellvm/src/Vellvm")
 (defconst SIMPLBERRY "/opt/devel/youngju.song/youngju.song/simplberry-compile/coq/")
 
