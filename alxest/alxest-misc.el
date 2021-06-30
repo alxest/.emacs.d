@@ -70,6 +70,7 @@ With argument, do this that many times."
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+(setq fill-column 100)
 
 
 

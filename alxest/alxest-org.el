@@ -134,4 +134,23 @@ of visible headers."
 ;; (define-key evil-org-mode-map (kbd "g-k") 'org-shiftup)
 ;; (define-key evil-org-mode-map (kbd "g-l") 'org-shiftright)
 
+(add-hook 'org-mode-hook (lambda () (setq fill-column 100)))
+;list-faces-display
+;https://stackoverflow.com/questions/50816812/how-to-set-emacs-line-color-based-on-start-character
+(add-hook 'org-mode-hook (lambda () (highlight-regexp "^#.*$" (quote custom-comment))))
+;; (add-hook 'org-mode-hook (lambda () (highlight-regexp "^#.*$" (quote hi-green))))
+;; (add-hook 'org-mode-hook (lambda () (highlight-regexp "^#.*$" (quote company-tooltip-annotation))))
+;; (add-hook 'org-mode-hook (lambda () (highlight-regexp "^#g.*$" (quote diff-refine-changed))))
+;; (add-hook 'org-mode-hook (lambda () (highlight-regexp "^#r.*$" (quote diff-refine-removed))))
+(add-hook 'org-mode-hook (lambda () (highlight-regexp "^.*`b$" (quote caml-types-scope-face))))
+(add-hook 'org-mode-hook (lambda () (highlight-regexp "^.*`r$" (quote helm-buffer-saved-out))))
+(add-hook 'org-mode-hook (lambda () (highlight-regexp "^.*`g$" (quote caml-types-expr-face))))
+(add-hook 'org-mode-hook (lambda () (highlight-regexp "^.*`y$" (quote proof-command-mouse-highlight-face))))
+
+(define-key org-mode-map (kbd "C-c C-r") 'revert-buffer)
+(define-key org-mode-map (kbd "M-{") '(lambda nil (interactive) (other-window -1)))
+(define-key org-mode-map (kbd "M-}") '(lambda nil (interactive) (other-window 1)))
+
+;(font-lock-add-keywords 'org-mode "★")
+
 (provide 'alxest-org)
