@@ -263,7 +263,10 @@
  '(org-export-backends '(ascii html icalendar latex md))
  '(package-selected-packages
    '(rainbow-delimiters helm-ag solarized-theme color-theme-solarized xcscope undo-tree tuareg tide sr-speedbar racer proof-general multiple-cursors merlin magit lsp-haskell helm-projectile fsharp-mode exec-path-from-shell evil-search-highlight-persist evil-leader ecb dictionary csharp-mode company-coq color-theme-modern cil-mode bm))
- '(safe-local-variable-values '((TeX-master . "iris") (TeX-master . "main"))))
+ '(safe-local-variable-values
+   '((TeX-master . "../main")
+     (TeX-master . "iris")
+     (TeX-master . "main"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
