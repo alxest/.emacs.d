@@ -12,37 +12,37 @@
 		"Name of eshell buffer.")
 
 (defun alxest-eshell/new ()
-		"Create new eshell buffer."
-		(interactive)
-		(let ((buffer-name (alxest-eshell/get-buffer-name))
-								(buffer))
-				(setq buffer (generate-new-buffer buffer-name))
-				(setq alxest-eshell/buffer-list (nconc alxest-eshell/buffer-list (list buffer)))
-	    (pop-to-buffer-same-window buffer)
-					(unless (eq major-mode 'eshell-mode)
-							(eshell-mode))
+  "Create new eshell buffer."
+  (interactive)
+  (let ((buffer-name (alxest-eshell/get-buffer-name))
+	(buffer))
+    (setq buffer (generate-new-buffer buffer-name))
+    (setq alxest-eshell/buffer-list (nconc alxest-eshell/buffer-list (list buffer)))
+    (pop-to-buffer-same-window buffer)
+    (unless (eq major-mode 'eshell-mode)
+      (eshell-mode))
     buffer))
 ;eshell doesn't take name as argument
 
 (defun alxest-eshell/get-buffer-name ()
-		(let ((index 1))
-				(while (buffer-live-p (get-buffer (format "*%s[%s]*" alxest-eshell/buffer-name index)))
-						(setq index (1+ index)))
-				(cd (or default-directory (expand-file-name alxest-eshell/default-dir)))
-				(format "*%s[%s]*" alxest-eshell/buffer-name index)))
+  (let ((index 1))
+    (while (buffer-live-p (get-buffer (format "*%s[%s]*" alxest-eshell/buffer-name index)))
+      (setq index (1+ index)))
+    (cd (or default-directory (expand-file-name alxest-eshell/default-dir)))
+    (format "*%s[%s]*" alxest-eshell/buffer-name index)))
 
 (defun alxest-eshell/next (&optional offset)
-		"Move next buffer. Takes Offset as an argument."
-		(interactive)
-		(setq offset (or offset 1))
-		(unless
-						(if alxest-eshell/buffer-list
-										(let ((len (length alxest-eshell/buffer-list))
-																(cur (position (current-buffer) alxest-eshell/buffer-list)))
-												(if cur
-																(switch-to-buffer (nth (mod (+ cur offset) len) alxest-eshell/buffer-list))
-														(switch-to-buffer (car alxest-eshell/buffer-list)))))
-						(alxest-eshell/new)))
+  "Move next buffer. Takes Offset as an argument."
+  (interactive)
+  (setq offset (or offset 1))
+  (unless
+      (if alxest-eshell/buffer-list
+	  (let ((len (length alxest-eshell/buffer-list))
+		(cur (position (current-buffer) alxest-eshell/buffer-list)))
+	    (if cur
+		(switch-to-buffer (nth (mod (+ cur offset) len) alxest-eshell/buffer-list))
+	      (switch-to-buffer (car alxest-eshell/buffer-list)))))
+    (alxest-eshell/new)))
 
 (defun alxest-eshell/prev (&optional offset)
 		"Move to prev buffer. Takes Offset as an argument."
