@@ -6,10 +6,16 @@
 
 
 (require-package 'evil-leader)
-(add-to-list 'load-path "~/.emacs.d/plugins/evil-org-mode")
-(require 'evil-org) ; not installed from package manager. https://github.com/edwtjo/evil-org-mode
-; official guide says this way, also it does not work when installed with package manager
 (global-evil-leader-mode)
+
+
+
+(add-to-list 'load-path "~/.emacs.d/plugins/evil-org-mode")
+(require-package 'evil-org)
+(add-hook 'org-mode-hook 'evil-org-mode)
+(evil-org-set-key-theme '(navigation insert textobjects additional calendar))
+(require 'evil-org-agenda)
+(evil-org-agenda-set-keys)
 
 
 ;http://tonyballantyne.com/tech/elpa-org-mode-and-invalid-function-org-with-silent-modifications/
@@ -17,9 +23,8 @@
 
 ;https://lists.gnu.org/archive/html/emacs-orgmode/2013-04/msg01119.html
 (require 'org)
-(require 'org-agenda)
-(define-key org-agenda-mode-map "j" 'evil-next-line)
-(define-key org-agenda-mode-map "k" 'evil-previous-line)
+;(define-key org-agenda-mode-map "j" 'evil-next-line)
+;(define-key org-agenda-mode-map "k" 'evil-previous-line)
 
 
 
