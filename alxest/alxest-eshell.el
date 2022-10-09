@@ -2,6 +2,8 @@
 (global-set-key (kbd "C-}") 'alxest-eshell/next)
 (global-set-key (kbd "C-{") 'alxest-eshell/prev)
 
+(require 'cl-lib)
+
 (defvar alxest-eshell/buffer-list nil
 		"List of eshell buffers.")
 
