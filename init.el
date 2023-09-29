@@ -183,7 +183,7 @@
 ;http://emacs.stackexchange.com/questions/620/set-column-widths-in-ibuffer
 (setq ibuffer-formats 
       '((mark modified read-only " "
-              (name 25 25 :left :elide) ; original: 18
+              (name 30 30 :left :elide) ; original: 18
               " "
               (size 9 -1 :right)
               " "
@@ -262,9 +262,11 @@
  ;; If there is more than one, they won't work right.
  '(org-export-backends '(ascii html icalendar latex md))
  '(package-selected-packages
-   '(rainbow-delimiters helm-ag solarized-theme color-theme-solarized xcscope undo-tree tuareg tide sr-speedbar racer proof-general multiple-cursors merlin magit lsp-haskell helm-projectile fsharp-mode exec-path-from-shell evil-search-highlight-persist evil-leader ecb dictionary csharp-mode company-coq color-theme-modern cil-mode bm))
+   '(math-symbol-lists rainbow-delimiters helm-ag solarized-theme color-theme-solarized xcscope undo-tree tuareg tide sr-speedbar racer proof-general multiple-cursors merlin magit lsp-haskell helm-projectile fsharp-mode exec-path-from-shell evil-search-highlight-persist evil-leader ecb dictionary csharp-mode company-coq color-theme-modern cil-mode bm))
  '(safe-local-variable-values
-   '((TeX-master . "../main")
+   '((TeX-command-extra-options . "-shell-escape")
+     (TeX-master . "paper")
+     (TeX-master . "../main")
      (TeX-master . "iris")
      (TeX-master . "main"))))
 (custom-set-faces

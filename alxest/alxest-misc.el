@@ -33,6 +33,8 @@ With argument, do this that many times."
 
 (require-package 'undo-tree)
 (global-undo-tree-mode 1)
+;; https://www.reddit.com/r/emacs/comments/tejte0/undotree_bug_undotree_files_scattering_everywhere/
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 
 (require-package 'bm)

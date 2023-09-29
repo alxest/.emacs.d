@@ -40,7 +40,7 @@
   (unless
       (if alxest-eshell/buffer-list
 	  (let ((len (length alxest-eshell/buffer-list))
-		(cur (position (current-buffer) alxest-eshell/buffer-list)))
+		(cur (cl-position (current-buffer) alxest-eshell/buffer-list)))
 	    (if cur
 		(switch-to-buffer (nth (mod (+ cur offset) len) alxest-eshell/buffer-list))
 	      (switch-to-buffer (car alxest-eshell/buffer-list)))))
